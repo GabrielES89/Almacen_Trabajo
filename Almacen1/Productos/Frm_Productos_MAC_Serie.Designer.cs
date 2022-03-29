@@ -211,7 +211,7 @@
             this.PanelInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelInfo.Location = new System.Drawing.Point(0, 30);
             this.PanelInfo.Name = "PanelInfo";
-            this.PanelInfo.Size = new System.Drawing.Size(860, 183);
+            this.PanelInfo.Size = new System.Drawing.Size(860, 184);
             this.PanelInfo.TabIndex = 220;
             // 
             // lblOrden2
@@ -219,7 +219,7 @@
             this.lblOrden2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblOrden2.AutoSize = true;
             this.lblOrden2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrden2.Location = new System.Drawing.Point(500, 130);
+            this.lblOrden2.Location = new System.Drawing.Point(500, 131);
             this.lblOrden2.Name = "lblOrden2";
             this.lblOrden2.Size = new System.Drawing.Size(28, 23);
             this.lblOrden2.TabIndex = 225;
@@ -230,7 +230,7 @@
             this.lblOrden.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblOrden.AutoSize = true;
             this.lblOrden.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrden.Location = new System.Drawing.Point(450, 130);
+            this.lblOrden.Location = new System.Drawing.Point(450, 131);
             this.lblOrden.Name = "lblOrden";
             this.lblOrden.Size = new System.Drawing.Size(58, 23);
             this.lblOrden.TabIndex = 224;

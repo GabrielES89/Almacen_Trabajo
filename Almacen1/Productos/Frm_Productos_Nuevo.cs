@@ -14,6 +14,7 @@ namespace Almacen1.Productos
     {
         // Formas
         Productos.Frm_Productos_MAC_Serie FormaMACYSerie;
+        Productos.Producto_MAC_SERIE_Prueba FormaPrueba;
 
         // Actions
         public Action Actualizar;
@@ -118,24 +119,33 @@ namespace Almacen1.Productos
                 if (cbxMAC.Checked && cbxSeries.Checked)
                 {
                     FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(3, dtN, Id_Orden);
+                    FormaPrueba = new Producto_MAC_SERIE_Prueba(3, dtN, Id_Orden);
                     FormaMACYSerie.Cerrar = Exit;
-                    FormaMACYSerie.ShowDialog();
+                    FormaMACYSerie.Show();
+                    //Prueba
+                    FormaPrueba.Show();
                 }
                 else
                 {
                     if (cbxMAC.Checked)
                     {
                         FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(1, dtN, Id_Orden);
+                        FormaPrueba = new Producto_MAC_SERIE_Prueba(1, dtN, Id_Orden);
                         FormaMACYSerie.Cerrar = Exit;
                         FormaMACYSerie.ShowDialog();
+                        //Prueba
+                        FormaPrueba.Show();
                     }
                     else
                     {
                         if (cbxSeries.Checked)
                         {
                             FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(2, dtN, Id_Orden);
+                            FormaPrueba = new Producto_MAC_SERIE_Prueba(2, dtN, Id_Orden);
                             FormaMACYSerie.Cerrar = Exit;
                             FormaMACYSerie.ShowDialog();
+                            //Prueba
+                            FormaPrueba.Show();
                         }
                     }
                 }

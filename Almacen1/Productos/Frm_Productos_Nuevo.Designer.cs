@@ -145,7 +145,7 @@
             // label6
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Location = new System.Drawing.Point(15, 460);
+            this.label6.Location = new System.Drawing.Point(15, 485);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(452, 2);
             this.label6.TabIndex = 72;
@@ -154,7 +154,7 @@
             // 
             this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(15, 435);
+            this.txtCantidad.Location = new System.Drawing.Point(15, 463);
             this.txtCantidad.MaxLength = 50;
             this.txtCantidad.Multiline = true;
             this.txtCantidad.Name = "txtCantidad";
@@ -167,7 +167,7 @@
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblCantidad.Location = new System.Drawing.Point(205, 413);
+            this.lblCantidad.Location = new System.Drawing.Point(205, 441);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(70, 18);
             this.lblCantidad.TabIndex = 71;
@@ -176,7 +176,7 @@
             // label4
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(14, 400);
+            this.label4.Location = new System.Drawing.Point(14, 415);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(452, 2);
             this.label4.TabIndex = 69;
@@ -186,12 +186,13 @@
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(14, 375);
-            this.txtDescripcion.MaxLength = 50;
+            this.txtDescripcion.MaxLength = 10000;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(452, 29);
+            this.txtDescripcion.Size = new System.Drawing.Size(452, 40);
             this.txtDescripcion.TabIndex = 67;
             this.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescripcion.WordWrap = false;
             // 
             // lblDescripcion
             // 
@@ -237,7 +238,8 @@
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(14, 277);
+            this.label2.ForeColor = System.Drawing.Color.Olive;
+            this.label2.Location = new System.Drawing.Point(14, 274);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(452, 2);
             this.label2.TabIndex = 63;
@@ -268,7 +270,7 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(14, 217);
+            this.label1.Location = new System.Drawing.Point(14, 214);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(452, 2);
             this.label1.TabIndex = 60;
@@ -329,7 +331,7 @@
             // label8
             // 
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.Location = new System.Drawing.Point(14, 94);
+            this.label8.Location = new System.Drawing.Point(14, 92);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(452, 2);
             this.label8.TabIndex = 35;

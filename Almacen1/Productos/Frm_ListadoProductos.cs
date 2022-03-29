@@ -28,7 +28,6 @@ namespace Almacen1.Productos
         DataTable dt1 = new DataTable();
         DataTable dt2 = new DataTable();
         DataTable dtO1= new DataTable();
-        DataTable dtIformacion = new DataTable();
 
         //Variables
         int Paginas = 0;
@@ -231,7 +230,6 @@ namespace Almacen1.Productos
 
         private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ObjProductos._consult_Producto(dtIformacion, dt1.Rows[e.RowIndex]["id"].ToString());
             if (e.RowIndex != -1)
             {
                 if (e.ColumnIndex > 1)
@@ -242,7 +240,7 @@ namespace Almacen1.Productos
                     {
                         FormaObservar = new Frm_Productos__Observar(dtO1);
                         FormaObservar.Show();
-                        Observar_Prueba = new Observar_Prueba(dtO1, dtIformacion);
+                        Observar_Prueba = new Observar_Prueba(dtO1, DGV1["Marca", e.RowIndex].Value.ToString(), DGV1["Modelo", e.RowIndex].Value.ToString(), DGV1["Parte", e.RowIndex].Value.ToString(), DGV1["Descripción", e.RowIndex].Value.ToString(), DGV1["Cantidad", e.RowIndex].Value.ToString());
                         Observar_Prueba.Show();
                     }
                     else
