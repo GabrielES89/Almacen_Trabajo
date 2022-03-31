@@ -32,11 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelDGV = new System.Windows.Forms.Panel();
+            this.DGV1 = new System.Windows.Forms.DataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnSeries = new System.Windows.Forms.Button();
             this.btnMAC = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.DGV1 = new System.Windows.Forms.DataGridView();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.PanelSuperior = new System.Windows.Forms.Panel();
             this.lbl_minimize = new System.Windows.Forms.Label();
             this.PicMedio = new System.Windows.Forms.PictureBox();
@@ -49,6 +49,7 @@
             this.lblModelo = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.PanelDGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.PanelSuperior.SuspendLayout();
@@ -59,50 +60,14 @@
             // 
             // PanelDGV
             // 
+            this.PanelDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelDGV.Controls.Add(this.DGV1);
             this.PanelDGV.Location = new System.Drawing.Point(0, 60);
             this.PanelDGV.Name = "PanelDGV";
             this.PanelDGV.Size = new System.Drawing.Size(480, 331);
             this.PanelDGV.TabIndex = 227;
-            // 
-            // btnSeries
-            // 
-            this.btnSeries.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnSeries.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeries.ForeColor = System.Drawing.Color.White;
-            this.btnSeries.Location = new System.Drawing.Point(12, 401);
-            this.btnSeries.Name = "btnSeries";
-            this.btnSeries.Size = new System.Drawing.Size(122, 40);
-            this.btnSeries.TabIndex = 228;
-            this.btnSeries.Text = "Series";
-            this.btnSeries.UseVisualStyleBackColor = false;
-            // 
-            // btnMAC
-            // 
-            this.btnMAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMAC.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnMAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMAC.ForeColor = System.Drawing.Color.White;
-            this.btnMAC.Location = new System.Drawing.Point(182, 401);
-            this.btnMAC.Name = "btnMAC";
-            this.btnMAC.Size = new System.Drawing.Size(122, 40);
-            this.btnMAC.TabIndex = 229;
-            this.btnMAC.Text = "MAC´s";
-            this.btnMAC.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(355, 401);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(122, 40);
-            this.btnGuardar.TabIndex = 230;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Visible = false;
             // 
             // DGV1
             // 
@@ -147,6 +112,7 @@
             this.DGV1.RowHeadersVisible = false;
             this.DGV1.Size = new System.Drawing.Size(480, 331);
             this.DGV1.TabIndex = 217;
+            this.DGV1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellValueChanged);
             // 
             // Editar
             // 
@@ -156,6 +122,49 @@
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
             this.Editar.Width = 60;
+            // 
+            // btnSeries
+            // 
+            this.btnSeries.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSeries.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSeries.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeries.ForeColor = System.Drawing.Color.White;
+            this.btnSeries.Location = new System.Drawing.Point(12, 401);
+            this.btnSeries.Name = "btnSeries";
+            this.btnSeries.Size = new System.Drawing.Size(122, 40);
+            this.btnSeries.TabIndex = 228;
+            this.btnSeries.Text = "Series";
+            this.btnSeries.UseVisualStyleBackColor = false;
+            this.btnSeries.Click += new System.EventHandler(this.btnSeries_Click);
+            // 
+            // btnMAC
+            // 
+            this.btnMAC.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnMAC.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnMAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMAC.ForeColor = System.Drawing.Color.White;
+            this.btnMAC.Location = new System.Drawing.Point(182, 401);
+            this.btnMAC.Name = "btnMAC";
+            this.btnMAC.Size = new System.Drawing.Size(122, 40);
+            this.btnMAC.TabIndex = 229;
+            this.btnMAC.Text = "MAC´s";
+            this.btnMAC.UseVisualStyleBackColor = false;
+            this.btnMAC.Click += new System.EventHandler(this.btnMAC_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(355, 401);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(122, 40);
+            this.btnGuardar.TabIndex = 230;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Visible = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // PanelSuperior
             // 
@@ -297,11 +306,23 @@
             this.lblProducto.TabIndex = 234;
             this.lblProducto.Text = "Producto";
             // 
+            // lblId
+            // 
+            this.lblId.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(275, 44);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(15, 15);
+            this.lblId.TabIndex = 235;
+            this.lblId.Text = "Id";
+            // 
             // Producto_MAC_SERIE_Prueba
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.lblProducto);
             this.Controls.Add(this.gbInformacion);
             this.Controls.Add(this.PanelSuperior);
@@ -344,5 +365,6 @@
         private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblProducto;
+        private System.Windows.Forms.Label lblId;
     }
 }

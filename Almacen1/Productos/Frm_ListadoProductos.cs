@@ -15,7 +15,6 @@ namespace Almacen1.Productos
     {
         // Formas
         Productos.Frm_Productos_Editar FormaProductosEditar;
-        Productos.Frm_Productos_Nuevo FormaProductosNuevo = new Frm_Productos_Nuevo();
         Productos.Frm_Productos__Observar FormaObservar;
         Productos.Observar_Prueba Observar_Prueba;
         Productos.Frm_Borrar_Producto FormaBorrar;
@@ -181,6 +180,7 @@ namespace Almacen1.Productos
         }
         void Nuevo()
         {
+            Productos.Frm_Productos_Nuevo FormaProductosNuevo = new Frm_Productos_Nuevo();
             FormaProductosNuevo.Actualizar = Carga;
             FormaProductosNuevo.Producto = Producto;
             FormaProductosNuevo.ShowDialog();

@@ -28,34 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbxSeries = new System.Windows.Forms.CheckBox();
             this.cbxMAC = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblBarra7 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblBarra6 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.cbFactura = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblBarra5 = new System.Windows.Forms.Label();
             this.lblNoFactura = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblBarra4 = new System.Windows.Forms.Label();
             this.txtParte = new System.Windows.Forms.TextBox();
             this.lblParte = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBarra3 = new System.Windows.Forms.Label();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.lblModelo = new System.Windows.Forms.Label();
             this.cbMarca = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblBarra2 = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblBarra1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tmError = new System.Windows.Forms.Timer(this.components);
+            this.lblNota1 = new System.Windows.Forms.Label();
+            this.lblNota2 = new System.Windows.Forms.Label();
+            this.lblNota3 = new System.Windows.Forms.Label();
+            this.lblNota4 = new System.Windows.Forms.Label();
+            this.lblNota5 = new System.Windows.Forms.Label();
+            this.lblNota6 = new System.Windows.Forms.Label();
+            this.lblNota7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -85,27 +94,34 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.lblNota7);
+            this.panel1.Controls.Add(this.lblNota6);
+            this.panel1.Controls.Add(this.lblNota5);
+            this.panel1.Controls.Add(this.lblNota4);
+            this.panel1.Controls.Add(this.lblNota3);
+            this.panel1.Controls.Add(this.lblNota2);
+            this.panel1.Controls.Add(this.lblNota1);
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_guardar);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblBarra7);
             this.panel1.Controls.Add(this.txtCantidad);
             this.panel1.Controls.Add(this.lblCantidad);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lblBarra6);
             this.panel1.Controls.Add(this.txtDescripcion);
             this.panel1.Controls.Add(this.lblDescripcion);
             this.panel1.Controls.Add(this.cbFactura);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblBarra5);
             this.panel1.Controls.Add(this.lblNoFactura);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblBarra4);
             this.panel1.Controls.Add(this.txtParte);
             this.panel1.Controls.Add(this.lblParte);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblBarra3);
             this.panel1.Controls.Add(this.txtModelo);
             this.panel1.Controls.Add(this.lblModelo);
             this.panel1.Controls.Add(this.cbMarca);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblBarra2);
             this.panel1.Controls.Add(this.lblMarca);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.lblBarra1);
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.lblNombre);
             this.panel1.Controls.Add(this.lblTitulo);
@@ -142,13 +158,13 @@
             this.btn_guardar.UseVisualStyleBackColor = false;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // label6
+            // lblBarra7
             // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Location = new System.Drawing.Point(15, 485);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(452, 2);
-            this.label6.TabIndex = 72;
+            this.lblBarra7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra7.Location = new System.Drawing.Point(15, 485);
+            this.lblBarra7.Name = "lblBarra7";
+            this.lblBarra7.Size = new System.Drawing.Size(452, 2);
+            this.lblBarra7.TabIndex = 72;
             // 
             // txtCantidad
             // 
@@ -161,6 +177,8 @@
             this.txtCantidad.Size = new System.Drawing.Size(452, 29);
             this.txtCantidad.TabIndex = 70;
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidad_KeyDown);
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblCantidad
             // 
@@ -173,13 +191,13 @@
             this.lblCantidad.TabIndex = 71;
             this.lblCantidad.Text = "Cantidad:";
             // 
-            // label4
+            // lblBarra6
             // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(14, 415);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(452, 2);
-            this.label4.TabIndex = 69;
+            this.lblBarra6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra6.Location = new System.Drawing.Point(14, 415);
+            this.lblBarra6.Name = "lblBarra6";
+            this.lblBarra6.Size = new System.Drawing.Size(452, 2);
+            this.lblBarra6.TabIndex = 69;
             // 
             // txtDescripcion
             // 
@@ -207,6 +225,7 @@
             // 
             // cbFactura
             // 
+            this.cbFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFactura.FormattingEnabled = true;
             this.cbFactura.Location = new System.Drawing.Point(14, 311);
@@ -216,13 +235,13 @@
             this.cbFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFactura_KeyPress);
             this.cbFactura.Leave += new System.EventHandler(this.cbFactura_Leave);
             // 
-            // label3
+            // lblBarra5
             // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Location = new System.Drawing.Point(15, 340);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(452, 2);
-            this.label3.TabIndex = 65;
+            this.lblBarra5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra5.Location = new System.Drawing.Point(15, 340);
+            this.lblBarra5.Name = "lblBarra5";
+            this.lblBarra5.Size = new System.Drawing.Size(452, 2);
+            this.lblBarra5.TabIndex = 65;
             // 
             // lblNoFactura
             // 
@@ -235,14 +254,14 @@
             this.lblNoFactura.TabIndex = 64;
             this.lblNoFactura.Text = "No. Factura:";
             // 
-            // label2
+            // lblBarra4
             // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.ForeColor = System.Drawing.Color.Olive;
-            this.label2.Location = new System.Drawing.Point(14, 274);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(452, 2);
-            this.label2.TabIndex = 63;
+            this.lblBarra4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra4.ForeColor = System.Drawing.Color.Olive;
+            this.lblBarra4.Location = new System.Drawing.Point(14, 274);
+            this.lblBarra4.Name = "lblBarra4";
+            this.lblBarra4.Size = new System.Drawing.Size(452, 2);
+            this.lblBarra4.TabIndex = 63;
             // 
             // txtParte
             // 
@@ -267,13 +286,13 @@
             this.lblParte.TabIndex = 62;
             this.lblParte.Text = "Parte:";
             // 
-            // label1
+            // lblBarra3
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(14, 214);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(452, 2);
-            this.label1.TabIndex = 60;
+            this.lblBarra3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra3.Location = new System.Drawing.Point(14, 214);
+            this.lblBarra3.Name = "lblBarra3";
+            this.lblBarra3.Size = new System.Drawing.Size(452, 2);
+            this.lblBarra3.TabIndex = 60;
             // 
             // txtModelo
             // 
@@ -300,6 +319,7 @@
             // 
             // cbMarca
             // 
+            this.cbMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMarca.FormattingEnabled = true;
             this.cbMarca.Location = new System.Drawing.Point(14, 128);
@@ -309,13 +329,13 @@
             this.cbMarca.TabIndex = 57;
             this.cbMarca.Leave += new System.EventHandler(this.cbMarca_Leave);
             // 
-            // label5
+            // lblBarra2
             // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(15, 157);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(452, 2);
-            this.label5.TabIndex = 56;
+            this.lblBarra2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra2.Location = new System.Drawing.Point(15, 157);
+            this.lblBarra2.Name = "lblBarra2";
+            this.lblBarra2.Size = new System.Drawing.Size(452, 2);
+            this.lblBarra2.TabIndex = 56;
             // 
             // lblMarca
             // 
@@ -328,13 +348,13 @@
             this.lblMarca.TabIndex = 55;
             this.lblMarca.Text = "Marca:";
             // 
-            // label8
+            // lblBarra1
             // 
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.Location = new System.Drawing.Point(14, 92);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(452, 2);
-            this.label8.TabIndex = 35;
+            this.lblBarra1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra1.Location = new System.Drawing.Point(14, 92);
+            this.lblBarra1.Name = "lblBarra1";
+            this.lblBarra1.Size = new System.Drawing.Size(452, 2);
+            this.lblBarra1.TabIndex = 35;
             // 
             // txtNombre
             // 
@@ -378,6 +398,95 @@
             this.panel2.Size = new System.Drawing.Size(497, 627);
             this.panel2.TabIndex = 32;
             // 
+            // tmError
+            // 
+            this.tmError.Interval = 5000;
+            this.tmError.Tick += new System.EventHandler(this.tmError_Tick);
+            // 
+            // lblNota1
+            // 
+            this.lblNota1.AutoSize = true;
+            this.lblNota1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota1.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota1.Location = new System.Drawing.Point(12, 94);
+            this.lblNota1.Name = "lblNota1";
+            this.lblNota1.Size = new System.Drawing.Size(36, 13);
+            this.lblNota1.TabIndex = 236;
+            this.lblNota1.Text = "Nota1";
+            this.lblNota1.Visible = false;
+            // 
+            // lblNota2
+            // 
+            this.lblNota2.AutoSize = true;
+            this.lblNota2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota2.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota2.Location = new System.Drawing.Point(12, 159);
+            this.lblNota2.Name = "lblNota2";
+            this.lblNota2.Size = new System.Drawing.Size(36, 13);
+            this.lblNota2.TabIndex = 237;
+            this.lblNota2.Text = "Nota2";
+            this.lblNota2.Visible = false;
+            // 
+            // lblNota3
+            // 
+            this.lblNota3.AutoSize = true;
+            this.lblNota3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota3.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota3.Location = new System.Drawing.Point(12, 216);
+            this.lblNota3.Name = "lblNota3";
+            this.lblNota3.Size = new System.Drawing.Size(36, 13);
+            this.lblNota3.TabIndex = 238;
+            this.lblNota3.Text = "Nota3";
+            this.lblNota3.Visible = false;
+            // 
+            // lblNota4
+            // 
+            this.lblNota4.AutoSize = true;
+            this.lblNota4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota4.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota4.Location = new System.Drawing.Point(12, 276);
+            this.lblNota4.Name = "lblNota4";
+            this.lblNota4.Size = new System.Drawing.Size(36, 13);
+            this.lblNota4.TabIndex = 239;
+            this.lblNota4.Text = "Nota4";
+            this.lblNota4.Visible = false;
+            // 
+            // lblNota5
+            // 
+            this.lblNota5.AutoSize = true;
+            this.lblNota5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota5.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota5.Location = new System.Drawing.Point(12, 342);
+            this.lblNota5.Name = "lblNota5";
+            this.lblNota5.Size = new System.Drawing.Size(36, 13);
+            this.lblNota5.TabIndex = 240;
+            this.lblNota5.Text = "Nota5";
+            this.lblNota5.Visible = false;
+            // 
+            // lblNota6
+            // 
+            this.lblNota6.AutoSize = true;
+            this.lblNota6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota6.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota6.Location = new System.Drawing.Point(12, 418);
+            this.lblNota6.Name = "lblNota6";
+            this.lblNota6.Size = new System.Drawing.Size(36, 13);
+            this.lblNota6.TabIndex = 241;
+            this.lblNota6.Text = "Nota6";
+            this.lblNota6.Visible = false;
+            // 
+            // lblNota7
+            // 
+            this.lblNota7.AutoSize = true;
+            this.lblNota7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota7.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota7.Location = new System.Drawing.Point(12, 487);
+            this.lblNota7.Name = "lblNota7";
+            this.lblNota7.Size = new System.Drawing.Size(36, 13);
+            this.lblNota7.TabIndex = 242;
+            this.lblNota7.Text = "Nota7";
+            this.lblNota7.Visible = false;
+            // 
             // Frm_Productos_Nuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,28 +511,36 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblBarra1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.ComboBox cbMarca;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblBarra2;
         private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBarra3;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label lblModelo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblBarra4;
         private System.Windows.Forms.TextBox txtParte;
         private System.Windows.Forms.Label lblParte;
         private System.Windows.Forms.ComboBox cbFactura;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblBarra5;
         private System.Windows.Forms.Label lblNoFactura;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblBarra6;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblBarra7;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Timer tmError;
+        private System.Windows.Forms.Label lblNota1;
+        private System.Windows.Forms.Label lblNota7;
+        private System.Windows.Forms.Label lblNota6;
+        private System.Windows.Forms.Label lblNota5;
+        private System.Windows.Forms.Label lblNota4;
+        private System.Windows.Forms.Label lblNota3;
+        private System.Windows.Forms.Label lblNota2;
     }
 }
