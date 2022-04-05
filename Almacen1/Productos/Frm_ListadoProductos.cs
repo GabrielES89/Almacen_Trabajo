@@ -15,7 +15,6 @@ namespace Almacen1.Productos
     {
         // Formas
         Productos.Frm_Productos_Editar FormaProductosEditar;
-        Productos.Frm_Productos_Nuevo FormaProductosNuevo = new Frm_Productos_Nuevo();
         Productos.Frm_Productos__Observar FormaObservar;
         Productos.Observar_Prueba Observar_Prueba;
         Productos.Frm_Borrar_Producto FormaBorrar;
@@ -28,7 +27,6 @@ namespace Almacen1.Productos
         DataTable dt1 = new DataTable();
         DataTable dt2 = new DataTable();
         DataTable dtO1= new DataTable();
-        DataTable dtIformacion = new DataTable();
 
         //Variables
         int Paginas = 0;
@@ -182,6 +180,7 @@ namespace Almacen1.Productos
         }
         void Nuevo()
         {
+            Productos.Frm_Productos_Nuevo FormaProductosNuevo = new Frm_Productos_Nuevo();
             FormaProductosNuevo.Actualizar = Carga;
             FormaProductosNuevo.Producto = Producto;
             FormaProductosNuevo.ShowDialog();
@@ -231,7 +230,6 @@ namespace Almacen1.Productos
 
         private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ObjProductos._consult_Producto(dtIformacion, dt1.Rows[e.RowIndex]["id"].ToString());
             if (e.RowIndex != -1)
             {
                 if (e.ColumnIndex > 1)
@@ -242,7 +240,7 @@ namespace Almacen1.Productos
                     {
                         FormaObservar = new Frm_Productos__Observar(dtO1);
                         FormaObservar.Show();
-                        Observar_Prueba = new Observar_Prueba(dtO1, dtIformacion);
+                        Observar_Prueba = new Observar_Prueba(dtO1, DGV1["Marca", e.RowIndex].Value.ToString(), DGV1["Modelo", e.RowIndex].Value.ToString(), DGV1["Parte", e.RowIndex].Value.ToString(), DGV1["Descripción", e.RowIndex].Value.ToString(), DGV1["Cantidad", e.RowIndex].Value.ToString());
                         Observar_Prueba.Show();
                     }
                     else

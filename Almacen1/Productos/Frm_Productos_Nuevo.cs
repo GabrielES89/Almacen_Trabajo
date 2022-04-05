@@ -14,6 +14,7 @@ namespace Almacen1.Productos
     {
         // Formas
         Productos.Frm_Productos_MAC_Serie FormaMACYSerie;
+        Productos.Producto_MAC_SERIE_Prueba FormaPrueba;
 
         // Actions
         public Action Actualizar;
@@ -117,25 +118,34 @@ namespace Almacen1.Productos
             {
                 if (cbxMAC.Checked && cbxSeries.Checked)
                 {
-                    FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(3, dtN, Id_Orden);
-                    FormaMACYSerie.Cerrar = Exit;
-                    FormaMACYSerie.ShowDialog();
+                    //FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(3, dtN, Id_Orden);
+                    //FormaMACYSerie.Cerrar = Exit;
+                    //FormaMACYSerie.Show();
+                    //Prueba
+                    FormaPrueba = new Producto_MAC_SERIE_Prueba(3, dtN, Id_Orden);
+                    FormaPrueba.ShowDialog();
                 }
                 else
                 {
                     if (cbxMAC.Checked)
                     {
-                        FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(1, dtN, Id_Orden);
-                        FormaMACYSerie.Cerrar = Exit;
-                        FormaMACYSerie.ShowDialog();
+                        //FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(1, dtN, Id_Orden);
+                        FormaPrueba = new Producto_MAC_SERIE_Prueba(1, dtN, Id_Orden);
+                        //FormaMACYSerie.Cerrar = Exit;
+                        //FormaMACYSerie.Show();
+                        //Prueba
+                        FormaPrueba.ShowDialog();
                     }
                     else
                     {
                         if (cbxSeries.Checked)
                         {
-                            FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(2, dtN, Id_Orden);
-                            FormaMACYSerie.Cerrar = Exit;
-                            FormaMACYSerie.ShowDialog();
+                            //FormaMACYSerie = new Productos.Frm_Productos_MAC_Serie(2, dtN, Id_Orden);
+                            FormaPrueba = new Producto_MAC_SERIE_Prueba(2, dtN, Id_Orden);
+                            //FormaMACYSerie.Cerrar = Exit;
+                            //FormaMACYSerie.Show();
+                            //Prueba
+                            FormaPrueba.ShowDialog();
                         }
                     }
                 }
@@ -196,19 +206,165 @@ namespace Almacen1.Productos
             }
         }
 
-        private void btn_guardar_Click(object sender, EventArgs e)
+        private void tmError_Tick(object sender, EventArgs e)
         {
-            ComprobarProducto();
-            if (NuevoProducto)
+            lblNota1.Visible = false;
+            lblBarra1.BackColor = SystemColors.Window;
+            lblBarra1.Height = 2;
+            lblNota2.Visible = false;
+            lblBarra2.BackColor = SystemColors.Window;
+            lblBarra2.Height = 2;
+            lblNota3.Visible = false;
+            lblBarra3.BackColor = SystemColors.Window;
+            lblBarra3.Height = 2;
+            lblNota4.Visible = false;
+            lblBarra4.BackColor = SystemColors.Window;
+            lblBarra4.Height = 2;
+            lblNota5.Visible = false;
+            lblBarra5.BackColor = SystemColors.Window;
+            lblBarra5.Height = 2;
+            lblNota6.Visible = false;
+            lblBarra6.BackColor = SystemColors.Window;
+            lblBarra6.Height = 2;
+            lblNota7.Visible = false;
+            lblBarra7.BackColor = SystemColors.Window;
+            lblBarra7.Height = 2;
+            tmError.Stop();
+        }
+
+        bool ComprobarCampos()
+        {
+            bool ComprobarDatos = true;
+            if (txtNombre.Text == "")
             {
-                NuevaMarca();
-                Nuevo();
-                SeriesYMACs();
-                this.Close();
+                ComprobarDatos = false;
+                lblNota1.Text = "Este campo no puede estar vacio.";
+                lblNota1.Visible = true;
+                lblBarra1.BackColor = Color.Red;
+                lblBarra1.Height = 3;
+                tmError.Stop();
+                tmError.Start();
             }
             else
             {
-                Producto(dtNProducto);
+                lblNota1.Visible = false;
+                lblBarra1.BackColor = SystemColors.Window;
+                lblBarra1.Height = 2;
+            }
+            if (cbMarca.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota2.Text = "Este campo no puede estar vacio.";
+                lblNota2.Visible = true;
+                lblBarra2.BackColor = Color.Red;
+                lblBarra2.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota2.Visible = false;
+                lblBarra2.BackColor = SystemColors.Window;
+                lblBarra2.Height = 2;
+            }
+            if (txtModelo.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota3.Text = "Este campo no puede estar vacio.";
+                lblNota3.Visible = true;
+                lblBarra3.BackColor = Color.Red;
+                lblBarra3.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota3.Visible = false;
+                lblBarra3.BackColor = SystemColors.Window;
+                lblBarra3.Height = 2;
+            }
+            if (txtParte.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota4.Text = "Este campo no puede estar vacio.";
+                lblNota4.Visible = true;
+                lblBarra4.BackColor = Color.Red;
+                lblBarra4.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota4.Visible = false;
+                lblBarra4.BackColor = SystemColors.Window;
+                lblBarra4.Height = 2;
+            }
+            if (cbFactura.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota5.Text = "Este campo no puede estar vacio.";
+                lblNota5.Visible = true;
+                lblBarra5.BackColor = Color.Red;
+                lblBarra5.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota5.Visible = false;
+                lblBarra5.BackColor = SystemColors.Window;
+                lblBarra5.Height = 2;
+            }
+            if (txtDescripcion.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota6.Text = "Este campo no puede estar vacio.";
+                lblNota6.Visible = true;
+                lblBarra6.BackColor = Color.Red;
+                lblBarra6.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota6.Visible = false;
+                lblBarra6.BackColor = SystemColors.Window;
+                lblBarra6.Height = 2;
+            }
+            if (txtCantidad.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota7.Text = "Este campo no puede estar vacio.";
+                lblNota7.Visible = true;
+                lblBarra7.BackColor = Color.Red;
+                lblBarra7.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota7.Visible = false;
+                lblBarra7.BackColor = SystemColors.Window;
+                lblBarra7.Height = 2;
+            }
+            return ComprobarDatos;
+        }
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (ComprobarCampos())
+            {
+                ComprobarProducto();
+                if (NuevoProducto)
+                {
+                    NuevaMarca();
+                    Nuevo();
+                    SeriesYMACs();
+                    this.Close();
+                }
+                else
+                {
+                    Producto(dtNProducto);
+                }
             }
         }
 
@@ -230,6 +386,22 @@ namespace Almacen1.Productos
         private void cbFactura_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void txtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '\b')
+            {
+                e.Handled = false;
+            }
         }
     }
 }

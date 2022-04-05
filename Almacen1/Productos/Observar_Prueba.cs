@@ -23,38 +23,45 @@ namespace Almacen1.Productos
         // Datatable
         DataTable dt = new DataTable();
         DataTable dt2 = new DataTable();
-        DataTable dt3 = new DataTable();
         DataTable dtCodigo = new DataTable();
 
         // Variables
-        string id;
+        string id; 
+        string Marca;
+        string Modelo;
+        string Parte;
+        string Descripcion;
+        string Cantidad;
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        public Observar_Prueba(DataTable dt, DataTable dtInformacion)
+        public Observar_Prueba(DataTable dt, string Marca, string Modelo, string Parte, string Descripcion, string Cantidad)
         {
             InitializeComponent();
             this.dt = dt;
-            this.dt3 = dtInformacion;
+            this.Marca = Marca;
+            this.Modelo = Modelo;
+            this.Parte = Parte;
+            this.Descripcion = Descripcion;
+            this.Cantidad = Cantidad;
         }
-
-        private void Observar_Prueba_Load(object sender, EventArgs e)
+        void cargar ()
         {
-            
             id = dt.Rows[0][0].ToString();
             dt2 = dt.Copy();
-            label1.Text = dt2.Rows[0]["Nombre"].ToString();
-            label1.Location = new Point((this.Width / 2) - (label1.Width / 2), PanelSuperior.Height);
+            lblProducto.Text = dt2.Rows[0]["Nombre"].ToString();
+            lblProducto.Location = new Point((this.Width / 2) - (lblProducto.Width / 2), PanelSuperior.Height);
             dt2.Columns.Remove("Nombre");
             dt2.Columns.Remove("Id");
             dt2.Columns.Remove("Id_SMF");
-            lblMarca.Text = "Marca: " + dt3.Rows[0]["Marca"].ToString();
-            lblModelo.Text = "Modelo: " + dt3.Rows[0]["Modelo"].ToString();
-            lblParte.Text = "Parte: " + dt3.Rows[0]["Parte"].ToString();
-            rtxtDescripcion.Text = dt3.Rows[0]["Descripción"].ToString();
+            lblMarca.Text = "Marca: " + Marca;
+            lblModelo.Text = "Modelo: " + Modelo;
+            lblParte.Text = "Parte: " + Parte;
+            lblCantidad.Text = "Cantidad: " + Cantidad;
+            rtxtDescripcion.Text = Descripcion;
             if (dt2.Rows[0]["Serie"].ToString() == "")
             {
                 dt2.Columns.Remove("Serie");
@@ -66,6 +73,10 @@ namespace Almacen1.Productos
             DGV1.DataSource = dt2;
             this.Invoke(new Action(() => DGV1.Columns["Editar"].DisplayIndex = DGV1.Columns.Count - 1));
             this.Invoke(new Action(() => DGV1.Columns["Borrar"].DisplayIndex = DGV1.Columns.Count - 1));
+        }
+        private void Observar_Prueba_Load(object sender, EventArgs e)
+        {
+            cargar();
         }
 
         private void PanelSuperior_MouseDown(object sender, MouseEventArgs e)
