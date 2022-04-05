@@ -40,7 +40,6 @@
             this.PanelSuperior = new System.Windows.Forms.Panel();
             this.lbl_minimize = new System.Windows.Forms.Label();
             this.PicMedio = new System.Windows.Forms.PictureBox();
-            this.lbl_cerrar = new System.Windows.Forms.Label();
             this.gbInformacion = new System.Windows.Forms.GroupBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.gbDescripcion = new System.Windows.Forms.GroupBox();
@@ -172,12 +171,12 @@
             this.PanelSuperior.BackColor = System.Drawing.Color.ForestGreen;
             this.PanelSuperior.Controls.Add(this.lbl_minimize);
             this.PanelSuperior.Controls.Add(this.PicMedio);
-            this.PanelSuperior.Controls.Add(this.lbl_cerrar);
             this.PanelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSuperior.Location = new System.Drawing.Point(0, 0);
             this.PanelSuperior.Name = "PanelSuperior";
             this.PanelSuperior.Size = new System.Drawing.Size(800, 30);
             this.PanelSuperior.TabIndex = 232;
+            this.PanelSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelSuperior_MouseDown);
             // 
             // lbl_minimize
             // 
@@ -185,11 +184,12 @@
             this.lbl_minimize.AutoSize = true;
             this.lbl_minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_minimize.ForeColor = System.Drawing.Color.White;
-            this.lbl_minimize.Location = new System.Drawing.Point(714, -5);
+            this.lbl_minimize.Location = new System.Drawing.Point(746, 0);
             this.lbl_minimize.Name = "lbl_minimize";
             this.lbl_minimize.Size = new System.Drawing.Size(21, 24);
             this.lbl_minimize.TabIndex = 219;
             this.lbl_minimize.Text = "_";
+            this.lbl_minimize.Click += new System.EventHandler(this.lbl_minimize_Click);
             // 
             // PicMedio
             // 
@@ -197,23 +197,12 @@
             this.PicMedio.BackColor = System.Drawing.Color.Transparent;
             this.PicMedio.BackgroundImage = global::Almacen1.Properties.Resources.Minimizar;
             this.PicMedio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PicMedio.Location = new System.Drawing.Point(741, 3);
+            this.PicMedio.Location = new System.Drawing.Point(773, 3);
             this.PicMedio.Name = "PicMedio";
             this.PicMedio.Size = new System.Drawing.Size(21, 24);
             this.PicMedio.TabIndex = 220;
             this.PicMedio.TabStop = false;
-            // 
-            // lbl_cerrar
-            // 
-            this.lbl_cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_cerrar.AutoSize = true;
-            this.lbl_cerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cerrar.ForeColor = System.Drawing.Color.White;
-            this.lbl_cerrar.Location = new System.Drawing.Point(772, 3);
-            this.lbl_cerrar.Name = "lbl_cerrar";
-            this.lbl_cerrar.Size = new System.Drawing.Size(25, 24);
-            this.lbl_cerrar.TabIndex = 219;
-            this.lbl_cerrar.Text = "X";
+            this.PicMedio.Click += new System.EventHandler(this.PicMedio_Click);
             // 
             // gbInformacion
             // 
@@ -331,6 +320,7 @@
             this.Controls.Add(this.btnMAC);
             this.Controls.Add(this.btnSeries);
             this.Controls.Add(this.PanelDGV);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Producto_MAC_SERIE_Prueba";
             this.Text = "Producto_MAC_SERIE_Prueba";
             this.Load += new System.EventHandler(this.Producto_MAC_SERIE_Prueba_Load);
@@ -357,7 +347,6 @@
         private System.Windows.Forms.Panel PanelSuperior;
         private System.Windows.Forms.Label lbl_minimize;
         private System.Windows.Forms.PictureBox PicMedio;
-        private System.Windows.Forms.Label lbl_cerrar;
         private System.Windows.Forms.GroupBox gbInformacion;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.GroupBox gbDescripcion;

@@ -252,11 +252,11 @@ namespace Almacen1.Productos
                 {
                     if (e.ColumnIndex == 0)
                     {
-                        EditarEmpleados(e.RowIndex + (Paginas * 22));
+                        EditarEmpleados(e.RowIndex + (Paginas * 21));
                     }
                     if (e.ColumnIndex == 1)
                     {
-                        FormaBorrar = new Frm_Borrar_Producto(dt1.Rows[e.RowIndex + (Paginas * 22)][0].ToString(), dt1.Rows[e.RowIndex + (Paginas * 22)][1].ToString());
+                        FormaBorrar = new Frm_Borrar_Producto(dt1.Rows[e.RowIndex + (Paginas * 21)][0].ToString(), dt1.Rows[e.RowIndex + (Paginas * 21)][1].ToString());
                         FormaBorrar.ShowDialog();
                         Carga();
                     }
@@ -273,7 +273,7 @@ namespace Almacen1.Productos
             CargarCantidadDePaginas();
             Paginas = 0;
             cbLista.Text = Paginas.ToString();
-            DGV1.RowCount = 22;
+            DGV1.RowCount = 21;
             ActucalizarPagina();
             this.Invoke(new Action(() => DGV1.Columns["Editar"].DisplayIndex = DGV1.Columns.Count - 1));
             this.Invoke(new Action(() => DGV1.Columns["Borrar"].DisplayIndex = DGV1.Columns.Count - 1));

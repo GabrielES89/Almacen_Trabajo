@@ -140,5 +140,10 @@ namespace Almacen1.Productos
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void PanelSuperior_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
