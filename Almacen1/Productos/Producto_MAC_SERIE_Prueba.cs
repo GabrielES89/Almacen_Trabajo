@@ -250,6 +250,7 @@ namespace Almacen1.Productos
                     ObjProductos._set_Serie_MAC(DGV1["Serie", i].Value.ToString(), DGV1["MAC", i].Value.ToString(), Id, id_orden_almacen, Codigo_QR());
                 }
             }
+            this.Close();
         }
 
         private void btnSeries_Click(object sender, EventArgs e)
@@ -272,6 +273,18 @@ namespace Almacen1.Productos
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void DGV1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    VentanaModificarMACYSerie = new Productos.Frm_Modificar_SerieYMAC(DGV1, e.RowIndex, AuxPrimera);
+                    VentanaModificarMACYSerie.ShowDialog();
+                }
             }
         }
     }
