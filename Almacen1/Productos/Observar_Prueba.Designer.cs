@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DGV1 = new System.Windows.Forms.DataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Panel_Busqueda = new System.Windows.Forms.Panel();
             this.cbBuscar = new System.Windows.Forms.ComboBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
@@ -39,6 +41,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.PanelSuperior = new System.Windows.Forms.Panel();
             this.lbl_minimize = new System.Windows.Forms.Label();
+            this.PicMedio = new System.Windows.Forms.PictureBox();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
             this.gbInformacion = new System.Windows.Forms.GroupBox();
@@ -50,15 +53,12 @@
             this.lblMarca = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PicMedio = new System.Windows.Forms.PictureBox();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Borrar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.Panel_Busqueda.SuspendLayout();
             this.PanelSuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicMedio)).BeginInit();
             this.gbInformacion.SuspendLayout();
             this.gbDescripcion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicMedio)).BeginInit();
             this.SuspendLayout();
             // 
             // DGV1
@@ -107,6 +107,28 @@
             this.DGV1.RowHeadersVisible = false;
             this.DGV1.Size = new System.Drawing.Size(436, 397);
             this.DGV1.TabIndex = 220;
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::Almacen1.Properties.Resources.editar;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Width = 79;
+            // 
+            // Borrar
+            // 
+            this.Borrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Borrar.HeaderText = "Borrar";
+            this.Borrar.Image = global::Almacen1.Properties.Resources.baja;
+            this.Borrar.Name = "Borrar";
+            this.Borrar.ReadOnly = true;
+            this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Borrar.Width = 83;
             // 
             // Panel_Busqueda
             // 
@@ -161,9 +183,9 @@
             this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNuevo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(723, 125);
+            this.btnNuevo.Location = new System.Drawing.Point(447, 125);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(115, 40);
+            this.btnNuevo.Size = new System.Drawing.Size(391, 40);
             this.btnNuevo.TabIndex = 218;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -192,6 +214,18 @@
             this.lbl_minimize.Size = new System.Drawing.Size(21, 24);
             this.lbl_minimize.TabIndex = 219;
             this.lbl_minimize.Text = "_";
+            // 
+            // PicMedio
+            // 
+            this.PicMedio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PicMedio.BackColor = System.Drawing.Color.Transparent;
+            this.PicMedio.BackgroundImage = global::Almacen1.Properties.Resources.Minimizar;
+            this.PicMedio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PicMedio.Location = new System.Drawing.Point(782, 3);
+            this.PicMedio.Name = "PicMedio";
+            this.PicMedio.Size = new System.Drawing.Size(21, 24);
+            this.PicMedio.TabIndex = 220;
+            this.PicMedio.TabStop = false;
             // 
             // lbl_cerrar
             // 
@@ -306,7 +340,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 79;
             // 
             // dataGridViewImageColumn2
             // 
@@ -316,41 +349,6 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn2.Width = 83;
-            // 
-            // PicMedio
-            // 
-            this.PicMedio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PicMedio.BackColor = System.Drawing.Color.Transparent;
-            this.PicMedio.BackgroundImage = global::Almacen1.Properties.Resources.Minimizar;
-            this.PicMedio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PicMedio.Location = new System.Drawing.Point(782, 3);
-            this.PicMedio.Name = "PicMedio";
-            this.PicMedio.Size = new System.Drawing.Size(21, 24);
-            this.PicMedio.TabIndex = 220;
-            this.PicMedio.TabStop = false;
-            // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Image = global::Almacen1.Properties.Resources.editar;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Editar.Width = 79;
-            // 
-            // Borrar
-            // 
-            this.Borrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Borrar.HeaderText = "Borrar";
-            this.Borrar.Image = global::Almacen1.Properties.Resources.baja;
-            this.Borrar.Name = "Borrar";
-            this.Borrar.ReadOnly = true;
-            this.Borrar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Borrar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Borrar.Width = 83;
             // 
             // Observar_Prueba
             // 
@@ -371,10 +369,10 @@
             this.Panel_Busqueda.PerformLayout();
             this.PanelSuperior.ResumeLayout(false);
             this.PanelSuperior.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicMedio)).EndInit();
             this.gbInformacion.ResumeLayout(false);
             this.gbInformacion.PerformLayout();
             this.gbDescripcion.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PicMedio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

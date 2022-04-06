@@ -92,9 +92,9 @@ namespace Almacen1.Class
             query = "SELECT T_P.id_producto as id, T_P.nombre, T_M.marca, T_P.modelo, T_P.parte, T_P.descripcion, T_P.cantidad  FROM `tb_productos` AS T_P INNER JOIN tb_marca AS T_M ON T_P.id_marca = T_M.id_marca WHERE T_P.nombre = '" + Nombre + "'";
             method.Consultar(query, dt);
         }
-        public void _consult_Buscar(DataTable dt, string Nombre)
+        public void _consult_Buscar(DataTable dt, string Nombre, string Campo)
         {
-            query = "SELECT T_P.id_producto as id, T_P.nombre as Nombre, T_M.marca as Marca, T_P.modelo as Modelo, T_P.parte as Parte, T_P.descripcion as Descripción, T_P.cantidad as Cantidad  FROM `tb_productos` AS T_P INNER JOIN tb_marca AS T_M ON T_P.id_marca = T_M.id_marca WHERE nombre LIKE '%" + Nombre + "%'";
+            query = "SELECT T_P.id_producto as id, T_P.nombre as Nombre, T_M.marca as Marca, T_P.modelo as Modelo, T_P.parte as Parte, T_P.descripcion as Descripción, T_P.cantidad as Cantidad  FROM `tb_productos` AS T_P INNER JOIN tb_marca AS T_M ON T_P.id_marca = T_M.id_marca WHERE " + Campo + " LIKE '%" + Nombre + "%'";
             method.Consultar(query, dt);
         }
         public void _consult_Buscar_MSF(DataTable dt, string Nombre)

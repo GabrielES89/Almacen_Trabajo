@@ -168,6 +168,7 @@ namespace Almacen1.Productos
         {
             Carga();
             PrimeraVez = true;
+            cbBuscarTipo.SelectedIndex = 0;
         }
         void Producto (DataTable dt)
         {
@@ -267,7 +268,33 @@ namespace Almacen1.Productos
         {
             dt1.Clear();
             dt2.Clear();
-            ObjProductos._consult_Buscar(dt1, txtBuscar.Text);
+            switch (cbBuscarTipo.SelectedIndex)
+            {
+                // Nombre.
+                case 0:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+                // Marca.
+                case 1:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+                // Modelo.
+                case 2:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+                // Parte.
+                case 3:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+                // Descripción.
+                case 4:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Tag.ToString());
+                    break;
+                // Cantidad.
+                case 5:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+            }
             dt2 = dt1.Copy();
             dt2.Columns.Remove("id");
             CargarCantidadDePaginas();
@@ -354,6 +381,28 @@ namespace Almacen1.Productos
             {
                 MessageBox.Show("Hola");
             }
+        }
+        void BuscarNombre()
+        {
+
+        }
+
+        private void cbBuscarTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "")
+            {
+                Carga();
+            }
+            else
+            {
+                Buscar();
+            }
+        }
+
+
+        private void cbBuscarTipo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
