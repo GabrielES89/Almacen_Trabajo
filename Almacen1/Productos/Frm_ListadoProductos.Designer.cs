@@ -254,11 +254,7 @@ namespace Almacen1.Productos
             this.DGV1.TabIndex = 215;
             this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
             this.DGV1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGV1_KeyDown);
-            this.DGV1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DGV1_MouseDown);
-            this.DGV1.MouseEnter += new System.EventHandler(this.DGV1_MouseEnter);
-            this.DGV1.MouseHover += new System.EventHandler(this.DGV1_MouseHover);
             this.DGV1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DGV1_MouseMove);
-            this.DGV1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DGV1_MouseUp);
             // 
             // Editar
             // 

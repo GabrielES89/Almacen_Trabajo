@@ -355,24 +355,30 @@ namespace Almacen1.Productos
 
         private void DGV1_KeyDown(object sender, KeyEventArgs e)
         {
-            
-        }
-
-        private void DGV1_MouseDown(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void DGV1_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
-        private void DGV1_MouseUp(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void DGV1_MouseHover(object sender, EventArgs e)
-        {
-            
+            if (e.KeyCode.ToString() == "Up")
+            {
+                Paginas++;
+                if (Paginas < Contador)
+                {
+                    ActucalizarPagina();
+                }
+                if (Paginas == Contador)
+                {
+                    Paginas--;
+                }
+            }
+            if (e.KeyCode.ToString() == "Down")
+            {
+                Paginas--;
+                if (Paginas > -1)
+                {
+                    ActucalizarPagina();
+                }
+                if (Paginas == -1)
+                {
+                    Paginas++;
+                }
+            }
         }
 
         private void DGV1_MouseMove(object sender, MouseEventArgs e)

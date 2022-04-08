@@ -42,6 +42,7 @@ namespace Almacen1.Productos
         int AuxPrimera;
         string id_orden_almacen = "";
         string Codigo;
+        bool CondicionCerrar = true;
 
         public Producto_MAC_SERIE_Prueba(int AuxPrimera, DataTable dtN, string id_orden_almacen)
         {
@@ -250,6 +251,7 @@ namespace Almacen1.Productos
                     ObjProductos._set_Serie_MAC(DGV1["Serie", i].Value.ToString(), DGV1["MAC", i].Value.ToString(), Id, id_orden_almacen, Codigo_QR());
                 }
             }
+            CondicionCerrar = false;
             this.Close();
         }
 
@@ -304,12 +306,33 @@ namespace Almacen1.Productos
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
-                PicMedio.BackgroundImage = Properties.Resources.Max_0;
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void Producto_MAC_SERIE_Prueba_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
                 PicMedio.BackgroundImage = Properties.Resources.Minimizar;
+            }
+            else
+            {
+                PicMedio.BackgroundImage = Properties.Resources.Max_0;
+            }
+        }
+
+        private void Producto_MAC_SERIE_Prueba_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (CondicionCerrar)
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }
