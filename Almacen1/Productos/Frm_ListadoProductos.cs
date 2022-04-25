@@ -34,9 +34,6 @@ namespace Almacen1.Productos
         int Contador2 = 0;
         int Contador = 0;
         bool PrimeraVez = false;
-        int SinStock = 0;
-        int Porterminar = 0;
-        int EnStock = 0;
 
         public Frm_ListadoProductos()
         {
@@ -113,7 +110,9 @@ namespace Almacen1.Productos
         }
         void Stocks ()
         {
-
+            int SinStock = 0;
+            int Porterminar = 0;
+            int EnStock = 0;
             for (int i = 0; i < dt2.Rows.Count; i++)
             {
                 if (dt2.Rows[i][5].ToString() == "0")
@@ -297,10 +296,12 @@ namespace Almacen1.Productos
             }
             dt2 = dt1.Copy();
             dt2.Columns.Remove("id");
+            Stocks();
             CargarCantidadDePaginas();
             Paginas = 0;
             cbLista.Text = Paginas.ToString();
             DGV1.RowCount = 21;
+            lblTotal.Text = "Productos: " + dt2.Rows.Count;
             ActucalizarPagina();
             this.Invoke(new Action(() => DGV1.Columns["Editar"].DisplayIndex = DGV1.Columns.Count - 1));
             this.Invoke(new Action(() => DGV1.Columns["Borrar"].DisplayIndex = DGV1.Columns.Count - 1));
