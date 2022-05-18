@@ -132,7 +132,7 @@ namespace Almacen1.Productos
             lblPorTerminar.Text = "Por terminar: " + Porterminar;
             lblStock.Text = "En stock: " + EnStock;
         }
-        void Carga()
+        public void Carga()
         {
             dt1.Clear();
             dt2.Clear();
@@ -238,9 +238,10 @@ namespace Almacen1.Productos
                     ObjProductos._consult_Productos_Series_MACs(dtO1, dt1.Rows[e.RowIndex + (Paginas * 21)][0].ToString());
                     if (dtO1.Rows.Count != 0)
                     {
-                        FormaObservar = new Frm_Productos__Observar(dtO1);
-                        FormaObservar.Show();
-                        Observar_Prueba = new Observar_Prueba(dtO1, DGV1["Marca", e.RowIndex].Value.ToString(), DGV1["Modelo", e.RowIndex].Value.ToString(), DGV1["Parte", e.RowIndex].Value.ToString(), DGV1["Descripción", e.RowIndex].Value.ToString(), DGV1["Cantidad", e.RowIndex].Value.ToString());
+                        //FormaObservar = new Frm_Productos__Observar(dtO1);
+                        //FormaObservar.Show();
+                        Observar_Prueba = new Observar_Prueba(dtO1.Rows[0]["Id"].ToString());
+                        Observar_Prueba.Actualizar = Carga;
                         Observar_Prueba.Show();
                     }
                     else

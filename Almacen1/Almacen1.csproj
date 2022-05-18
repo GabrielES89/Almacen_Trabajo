@@ -207,11 +207,23 @@
     <Compile Include="Productos\Frm_Modificar_SerieYMAC.Designer.cs">
       <DependentUpon>Frm_Modificar_SerieYMAC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\frm_Nuevo_MF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\frm_Nuevo_MF.Designer.cs">
+      <DependentUpon>frm_Nuevo_MF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\Frm_Nuevo_MSF.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Productos\Frm_Nuevo_MSF.Designer.cs">
       <DependentUpon>Frm_Nuevo_MSF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\frm_Nuevo_SF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\frm_Nuevo_SF.Designer.cs">
+      <DependentUpon>frm_Nuevo_SF.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\Observar_Prueba.cs">
       <SubType>Form</SubType>
@@ -356,8 +368,14 @@
     <EmbeddedResource Include="Productos\Frm_Modificar_SerieYMAC.resx">
       <DependentUpon>Frm_Modificar_SerieYMAC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Productos\frm_Nuevo_MF.resx">
+      <DependentUpon>frm_Nuevo_MF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_Nuevo_MSF.resx">
       <DependentUpon>Frm_Nuevo_MSF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\frm_Nuevo_SF.resx">
+      <DependentUpon>frm_Nuevo_SF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Observar_Prueba.resx">
       <DependentUpon>Observar_Prueba.cs</DependentUpon>

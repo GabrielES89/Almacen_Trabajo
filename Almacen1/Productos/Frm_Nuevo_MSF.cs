@@ -12,9 +12,12 @@ namespace Almacen1.Productos
 {
     public partial class Frm_Nuevo_MSF : Form
     {
-        public Frm_Nuevo_MSF()
+        //Datatables
+        DataTable dt;
+        public Frm_Nuevo_MSF(DataTable dt)
         {
             InitializeComponent();
+            this.dt = dt;
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -23,6 +26,11 @@ namespace Almacen1.Productos
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Frm_Nuevo_MSF_Load(object sender, EventArgs e)
         {
 
         }

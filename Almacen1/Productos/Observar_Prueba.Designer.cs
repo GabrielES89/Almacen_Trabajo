@@ -53,6 +53,7 @@
             this.lblMarca = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.Panel_Busqueda.SuspendLayout();
             this.PanelSuperior.SuspendLayout();
@@ -105,7 +106,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGV1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV1.RowHeadersVisible = false;
-            this.DGV1.Size = new System.Drawing.Size(436, 397);
+            this.DGV1.Size = new System.Drawing.Size(595, 397);
             this.DGV1.TabIndex = 220;
             // 
             // Editar
@@ -137,24 +138,24 @@
             this.Panel_Busqueda.Controls.Add(this.cbBuscar);
             this.Panel_Busqueda.Controls.Add(this.lblBusqueda);
             this.Panel_Busqueda.Controls.Add(this.txtBuscar);
-            this.Panel_Busqueda.Location = new System.Drawing.Point(447, 79);
+            this.Panel_Busqueda.Location = new System.Drawing.Point(606, 79);
             this.Panel_Busqueda.Name = "Panel_Busqueda";
             this.Panel_Busqueda.Size = new System.Drawing.Size(391, 40);
             this.Panel_Busqueda.TabIndex = 219;
             // 
             // cbBuscar
             // 
-            this.cbBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.cbBuscar.FormattingEnabled = true;
             this.cbBuscar.Items.AddRange(new object[] {
             "Serie",
-            "MAC",
+            "Mac",
             "Folio"});
             this.cbBuscar.Location = new System.Drawing.Point(293, 7);
             this.cbBuscar.Name = "cbBuscar";
             this.cbBuscar.Size = new System.Drawing.Size(85, 27);
-            this.cbBuscar.TabIndex = 13;
+            this.cbBuscar.TabIndex = 14;
             // 
             // lblBusqueda
             // 
@@ -176,6 +177,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(188, 26);
             this.txtBuscar.TabIndex = 12;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btnNuevo
             // 
@@ -183,12 +185,13 @@
             this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNuevo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(447, 125);
+            this.btnNuevo.Location = new System.Drawing.Point(606, 125);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(391, 40);
             this.btnNuevo.TabIndex = 218;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // PanelSuperior
             // 
@@ -199,7 +202,7 @@
             this.PanelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSuperior.Location = new System.Drawing.Point(0, 0);
             this.PanelSuperior.Name = "PanelSuperior";
-            this.PanelSuperior.Size = new System.Drawing.Size(841, 30);
+            this.PanelSuperior.Size = new System.Drawing.Size(1000, 30);
             this.PanelSuperior.TabIndex = 221;
             this.PanelSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelSuperior_MouseDown);
             // 
@@ -209,7 +212,7 @@
             this.lbl_minimize.AutoSize = true;
             this.lbl_minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_minimize.ForeColor = System.Drawing.Color.White;
-            this.lbl_minimize.Location = new System.Drawing.Point(755, -5);
+            this.lbl_minimize.Location = new System.Drawing.Point(914, -5);
             this.lbl_minimize.Name = "lbl_minimize";
             this.lbl_minimize.Size = new System.Drawing.Size(21, 24);
             this.lbl_minimize.TabIndex = 219;
@@ -221,11 +224,12 @@
             this.PicMedio.BackColor = System.Drawing.Color.Transparent;
             this.PicMedio.BackgroundImage = global::Almacen1.Properties.Resources.Minimizar;
             this.PicMedio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PicMedio.Location = new System.Drawing.Point(782, 3);
+            this.PicMedio.Location = new System.Drawing.Point(941, 3);
             this.PicMedio.Name = "PicMedio";
             this.PicMedio.Size = new System.Drawing.Size(21, 24);
             this.PicMedio.TabIndex = 220;
             this.PicMedio.TabStop = false;
+            this.PicMedio.Click += new System.EventHandler(this.PicMedio_Click);
             // 
             // lbl_cerrar
             // 
@@ -233,18 +237,19 @@
             this.lbl_cerrar.AutoSize = true;
             this.lbl_cerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cerrar.ForeColor = System.Drawing.Color.White;
-            this.lbl_cerrar.Location = new System.Drawing.Point(813, 3);
+            this.lbl_cerrar.Location = new System.Drawing.Point(972, 3);
             this.lbl_cerrar.Name = "lbl_cerrar";
             this.lbl_cerrar.Size = new System.Drawing.Size(25, 24);
             this.lbl_cerrar.TabIndex = 219;
             this.lbl_cerrar.Text = "X";
+            this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
             // 
             // lblProducto
             // 
             this.lblProducto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblProducto.AutoSize = true;
             this.lblProducto.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducto.Location = new System.Drawing.Point(400, 33);
+            this.lblProducto.Location = new System.Drawing.Point(480, 33);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(101, 31);
             this.lblProducto.TabIndex = 222;
@@ -261,7 +266,7 @@
             this.gbInformacion.Controls.Add(this.lblModelo);
             this.gbInformacion.Controls.Add(this.lblMarca);
             this.gbInformacion.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbInformacion.Location = new System.Drawing.Point(447, 171);
+            this.gbInformacion.Location = new System.Drawing.Point(606, 171);
             this.gbInformacion.Name = "gbInformacion";
             this.gbInformacion.Size = new System.Drawing.Size(391, 296);
             this.gbInformacion.TabIndex = 223;
@@ -350,20 +355,34 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // lblId
+            // 
+            this.lblId.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(578, 49);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(15, 15);
+            this.lblId.TabIndex = 236;
+            this.lblId.Text = "Id";
+            // 
             // Observar_Prueba
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 479);
+            this.ClientSize = new System.Drawing.Size(1000, 479);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.gbInformacion);
             this.Controls.Add(this.lblProducto);
             this.Controls.Add(this.PanelSuperior);
             this.Controls.Add(this.DGV1);
             this.Controls.Add(this.Panel_Busqueda);
             this.Controls.Add(this.btnNuevo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Observar_Prueba";
             this.Text = "Observar_Prueba";
             this.Load += new System.EventHandler(this.Observar_Prueba_Load);
+            this.SizeChanged += new System.EventHandler(this.Observar_Prueba_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.Panel_Busqueda.ResumeLayout(false);
             this.Panel_Busqueda.PerformLayout();
@@ -384,7 +403,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Borrar;
         private System.Windows.Forms.Panel Panel_Busqueda;
-        private System.Windows.Forms.ComboBox cbBuscar;
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnNuevo;
@@ -402,5 +420,7 @@
         private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.ComboBox cbBuscar;
     }
 }

@@ -145,5 +145,10 @@ namespace Almacen1.Productos
         {
 
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

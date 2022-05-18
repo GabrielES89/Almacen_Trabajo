@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Almacen1.Productos
 {
@@ -227,12 +228,14 @@ namespace Almacen1.Productos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            this.DoubleBuffered = true;
             //MAC
             if (AuxPrimera == 1)
             {
                 for (int i = 0; i < DGV1.Rows.Count; i++)
                 {
                     ObjProductos._set_MAC(DGV1["MAC", i].Value.ToString(), Id, id_orden_almacen, Codigo_QR());
+                    Thread.Sleep(10);
                 }
             }
             //Serie
@@ -241,6 +244,7 @@ namespace Almacen1.Productos
                 for (int i = 0; i < DGV1.Rows.Count; i++)
                 {
                     ObjProductos._set_Serie(DGV1["Serie", i].Value.ToString(), Id, id_orden_almacen, Codigo_QR());
+                    Thread.Sleep(10);
                 }
             }
             // MAC y Serie
@@ -249,6 +253,7 @@ namespace Almacen1.Productos
                 for (int i = 0; i < DGV1.Rows.Count; i++)
                 {
                     ObjProductos._set_Serie_MAC(DGV1["Serie", i].Value.ToString(), DGV1["MAC", i].Value.ToString(), Id, id_orden_almacen, Codigo_QR());
+                    Thread.Sleep(10);
                 }
             }
             CondicionCerrar = false;
