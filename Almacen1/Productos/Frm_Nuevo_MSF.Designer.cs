@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMAC = new System.Windows.Forms.TextBox();
             this.lblMac = new System.Windows.Forms.Label();
             this.lblBarra1 = new System.Windows.Forms.Label();
             this.txtSerie = new System.Windows.Forms.TextBox();
@@ -42,6 +43,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblNoFactura = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.tmError = new System.Windows.Forms.Timer(this.components);
+            this.lblErrorSerie = new System.Windows.Forms.Label();
+            this.lblErrorMAC = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,8 +62,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.lblErrorMAC);
+            this.panel1.Controls.Add(this.lblErrorSerie);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtMAC);
             this.panel1.Controls.Add(this.lblMac);
             this.panel1.Controls.Add(this.lblBarra1);
             this.panel1.Controls.Add(this.txtSerie);
@@ -83,17 +89,17 @@
             this.label1.Size = new System.Drawing.Size(376, 2);
             this.label1.TabIndex = 80;
             // 
-            // textBox1
+            // txtMAC
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(562, 80);
-            this.textBox1.MaxLength = 50;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(376, 29);
-            this.textBox1.TabIndex = 78;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMAC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMAC.Location = new System.Drawing.Point(562, 80);
+            this.txtMAC.MaxLength = 50;
+            this.txtMAC.Multiline = true;
+            this.txtMAC.Name = "txtMAC";
+            this.txtMAC.Size = new System.Drawing.Size(376, 29);
+            this.txtMAC.TabIndex = 78;
+            this.txtMAC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblMac
             // 
@@ -165,6 +171,7 @@
             // 
             // cbFactura
             // 
+            this.cbFactura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFactura.FormattingEnabled = true;
             this.cbFactura.Location = new System.Drawing.Point(354, 183);
@@ -201,6 +208,35 @@
             this.lblTitulo.TabIndex = 32;
             this.lblTitulo.Text = "Registrar";
             // 
+            // tmError
+            // 
+            this.tmError.Interval = 5000;
+            this.tmError.Tick += new System.EventHandler(this.tmError_Tick);
+            // 
+            // lblErrorSerie
+            // 
+            this.lblErrorSerie.AutoSize = true;
+            this.lblErrorSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorSerie.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErrorSerie.Location = new System.Drawing.Point(58, 112);
+            this.lblErrorSerie.Name = "lblErrorSerie";
+            this.lblErrorSerie.Size = new System.Drawing.Size(198, 16);
+            this.lblErrorSerie.TabIndex = 236;
+            this.lblErrorSerie.Text = "La SERIE no puede estar vacia.";
+            this.lblErrorSerie.Visible = false;
+            // 
+            // lblErrorMAC
+            // 
+            this.lblErrorMAC.AutoSize = true;
+            this.lblErrorMAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorMAC.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErrorMAC.Location = new System.Drawing.Point(559, 112);
+            this.lblErrorMAC.Name = "lblErrorMAC";
+            this.lblErrorMAC.Size = new System.Drawing.Size(187, 16);
+            this.lblErrorMAC.TabIndex = 237;
+            this.lblErrorMAC.Text = "La MAC no puede estar vacia.";
+            this.lblErrorMAC.Visible = false;
+            // 
             // Frm_Nuevo_MSF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,10 +265,13 @@
         private System.Windows.Forms.Label lblNoFactura;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMAC;
         private System.Windows.Forms.Label lblMac;
         private System.Windows.Forms.Label lblBarra1;
         private System.Windows.Forms.TextBox txtSerie;
         private System.Windows.Forms.Label lblSerie;
+        private System.Windows.Forms.Timer tmError;
+        private System.Windows.Forms.Label lblErrorMAC;
+        private System.Windows.Forms.Label lblErrorSerie;
     }
 }

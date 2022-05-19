@@ -160,7 +160,7 @@ namespace Almacen1.Productos
                     Ventana_SF.ShowDialog();
                     break;
                 case 3:
-                    Ventana_NMSF = new Frm_Nuevo_MSF(dt);
+                    Ventana_NMSF = new Frm_Nuevo_MSF(dt, Cantidad);
                     Ventana_NMSF.ShowDialog();
                     break;
                 default:
@@ -178,9 +178,41 @@ namespace Almacen1.Productos
         void Busqueda()
         {
             DataTable Mil = new DataTable();
-            ObjProductos._consult_MSF(Mil, cbBuscar.Text, txtBuscar.Text, Id);
+            ObjProductos._consult_MSF_Buscar(Mil, cbBuscar.Text, txtBuscar.Text, Id);
             DGV1.DataSource = Mil;
             
+        }
+        void BusquedaMSF()
+        {
+            string Campo = "";
+            DataTable Mil = new DataTable();
+            switch (cbBuscar.Text)
+            {
+                case "Mac":
+                    Campo = "T_S_M.mac";
+                    break;
+                case "Serie":
+                    Campo = "T_S_M.serie";
+                    break;
+                case "Folio":
+                    Campo = "T_O.folio_orden";
+                    break;
+                case "Status":
+                    Campo = "T_S_P.status_producto";
+                    break;
+                default:
+                    break;
+            }
+            ObjProductos._consult_Buscar(Mil, Campo, txtBuscar.Text, Id);
+            DGV1.DataSource = Mil;
+
+        }
+        void BusquedaMSF_Todos()
+        {
+            DataTable Mil = new DataTable();
+            ObjProductos._consult_Buscar_Todos(Mil, txtBuscar.Text, Id);
+            DGV1.DataSource = Mil;
+
         }
         void AjustesDeBusqueda()
         {
@@ -216,6 +248,15 @@ namespace Almacen1.Productos
                     }
                     break;
                 case 3:
+                    
+                    if (cbBuscar.Text == "Todos")
+                    {
+                        BusquedaMSF_Todos();
+                    }
+                    else
+                    {
+                        BusquedaMSF();
+                    }
                     break;
                 default:
                     break;
