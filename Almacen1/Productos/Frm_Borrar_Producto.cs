@@ -22,7 +22,8 @@ namespace Almacen1.Productos
         {
             InitializeComponent();
             this.Id = Id;
-            txt_usuario.Text = Nombre;
+            lblTitulo.Text = Nombre;
+            lblTitulo.Left = (this.Width / 2) - (lblTitulo.Width / 2);
         }
 
         private void btnBaja_Click(object sender, EventArgs e)

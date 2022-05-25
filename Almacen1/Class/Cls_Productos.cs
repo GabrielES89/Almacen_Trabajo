@@ -102,9 +102,14 @@ namespace Almacen1.Class
             query = "SELECT T_P.id_producto as id, T_P.nombre as Nombre, T_M.marca as Marca, T_P.modelo as Modelo, T_P.parte as Parte, T_P.descripcion as Descripción, T_P.cantidad as Cantidad  FROM `tb_productos` AS T_P INNER JOIN tb_marca AS T_M ON T_P.id_marca = T_M.id_marca WHERE nombre LIKE '%" + Nombre + "%'";
             method.Consultar(query, dt);
         }
-        public void _consult_MSF_Buscar(DataTable dt, string Campo, string Valor, string Id)
+        public void _consult_MSF_Buscar_Todos(DataTable dt, string Campo, string Valor, string Id)
         {
-            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', " + Campo + ", T2.folio_orden as Folio, T3.status_producto as Status FROM `tb_series_mac` as T1 INNER JOIN tb_orden_almacen as T2 ON T2.id_orden_almacen = T1.id_orden_almacen INNER JOIN tb_status_producto as T3 ON T3.id_status_producto = T1.id_status_producto WHERE " + Campo + " LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' GROUP BY id_serie_mac";
+            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', " + Campo + ", T2.folio_orden as Folio, T3.status_producto as Status FROM `tb_series_mac` as T1 INNER JOIN tb_orden_almacen as T2 ON T2.id_orden_almacen = T1.id_orden_almacen INNER JOIN tb_status_producto as T3 ON T3.id_status_producto = T1.id_status_producto WHERE " + Campo + " LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' OR T2.folio_orden LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' OR T3.status_producto LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' GROUP BY id_serie_mac";
+            method.Consultar(query, dt);
+        }
+        public void _consult_MSF_Buscar(DataTable dt, string Campo1, string Campo2, string Valor, string Id)
+        {
+            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', " + Campo2 + ", T2.folio_orden as Folio, T3.status_producto as Status FROM `tb_series_mac` as T1 INNER JOIN tb_orden_almacen as T2 ON T2.id_orden_almacen = T1.id_orden_almacen INNER JOIN tb_status_producto as T3 ON T3.id_status_producto = T1.id_status_producto WHERE " + Campo1 + " LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' GROUP BY id_serie_mac";
             method.Consultar(query, dt);
         }
         public void _consult_MSF(DataTable dt, string Campo, string Valor, string Id)
@@ -177,6 +182,10 @@ namespace Almacen1.Class
         public bool _delete(string id_producto)
         {
             return method.delete(table, "id_producto ", id_producto);
+        }
+        public bool _delete_SM(string Id_SM)
+        {
+            return method.delete("tb_series_mac", "id_serie_mac ", Id_SM);
         }
     }
 }

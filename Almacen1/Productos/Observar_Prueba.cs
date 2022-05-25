@@ -26,6 +26,8 @@ namespace Almacen1.Productos
         Productos.Frm_Nuevo_MSF Ventana_NMSF;
         Productos.frm_Nuevo_SF Ventana_SF;
         Productos.frm_Nuevo_MF Ventana_MF;
+        Productos.Frm_Borrar_Producto_Observar Ventana_Borrar_SM;
+        Productos.Frm_Editar_Producto_Observar Ventana_Editar_Productos_SMF;
          
 
         // Datatable
@@ -75,16 +77,20 @@ namespace Almacen1.Productos
                 dt2.Columns.Remove("Serie");
                 Cambios = 1;
                 cbBuscar.Items.Clear();
+                cbBuscar.Items.Add("Todos");
                 cbBuscar.Items.Add("Mac");
                 cbBuscar.Items.Add("Folio");
+                cbBuscar.Items.Add("Status");
             }
             if (dt2.Rows[0]["MAC"].ToString() == "")
             {
                 dt2.Columns.Remove("MAC");
                 Cambios = 2;
                 cbBuscar.Items.Clear();
-                cbBuscar.Items.Add("serie");
+                cbBuscar.Items.Add("Todos");
+                cbBuscar.Items.Add("Serie");
                 cbBuscar.Items.Add("Folio");
+                cbBuscar.Items.Add("Status");
             }
             DGV1.DataSource = dt2;
             cbBuscar.SelectedIndex = Index;
@@ -169,16 +175,52 @@ namespace Almacen1.Productos
             cargar();
             Actualizar();
         }
-        void Busqueda(string Valor)
+        void BusquedaT()
         {
+            string Campo = "";
+            if (Cambios == 1)
+            {
+                Campo = "Mac";
+            }
+            else
+            {
+                Campo = "Serie";
+            }
             DataTable Mil = new DataTable();
-            ObjProductos._consult_MSF_ConFolio(Mil, Valor, txtBuscar.Text, Id);
+            ObjProductos._consult_MSF_Buscar_Todos(Mil, Campo, txtBuscar.Text, Id);
             DGV1.DataSource = Mil;
         }
         void Busqueda()
         {
+            string Campo = "";
+            string Campo2 = "";
             DataTable Mil = new DataTable();
-            ObjProductos._consult_MSF_Buscar(Mil, cbBuscar.Text, txtBuscar.Text, Id);
+            if (Cambios == 1)
+            {
+                Campo2 = "Mac";
+            }
+            else
+            {
+                Campo2 = "Serie";
+            }
+            switch (cbBuscar.Text)
+            {
+                case "Mac":
+                    Campo = "mac";
+                    break;
+                case "Serie":
+                    Campo = "serie";
+                    break;
+                case "Folio":
+                    Campo = "T2.folio_orden";
+                    break;
+                case "Status":
+                    Campo = "T3.status_producto";
+                    break;
+                default:
+                    break;
+            }
+            ObjProductos._consult_MSF_Buscar(Mil, Campo, Campo2, txtBuscar.Text, Id);
             DGV1.DataSource = Mil;
             
         }
@@ -228,9 +270,9 @@ namespace Almacen1.Productos
             switch (Cambios)
             {
                 case 1:
-                    if (cbBuscar.Text == "Folio")
+                    if (cbBuscar.Text == "Todos")
                     {
-                        Busqueda("Mac");
+                        BusquedaT();
                     }
                     else
                     {
@@ -238,9 +280,9 @@ namespace Almacen1.Productos
                     }
                     break;
                 case 2:
-                    if (cbBuscar.Text == "Folio")
+                    if (cbBuscar.Text == "Todos")
                     {
-                        Busqueda("Serie");
+                        BusquedaT();
                     }
                     else
                     {
@@ -266,6 +308,20 @@ namespace Almacen1.Productos
                 cargar();
             }
             AjustesDeBusqueda();
+        }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                Ventana_Borrar_SM = new Frm_Borrar_Producto_Observar(dt.Rows[e.RowIndex]["Id_SMF"].ToString(), dt.Rows[e.RowIndex]["Mac"].ToString(), dt.Rows[e.RowIndex]["Serie"].ToString(), Cambios);
+                Ventana_Borrar_SM.ShowDialog();
+            }
+            if (e.ColumnIndex == 0)
+            {
+                Ventana_Editar_Productos_SMF = new Frm_Editar_Producto_Observar(dt, e.RowIndex, Cambios);
+                Ventana_Editar_Productos_SMF.ShowDialog();
+            }
         }
     }
 }

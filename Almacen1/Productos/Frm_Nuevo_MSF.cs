@@ -33,7 +33,7 @@ namespace Almacen1.Productos
             this.dt = dt;
             this.Cantidad = Cantidad;
             this.Id = dt.Rows[0]["Id"].ToString();
-            lblTitulo.Text = dt.Rows[0][2].ToString();
+            lblTitulo.Text = dt.Rows[0]["Nombre"].ToString();
             ObjProductos._consult_Factura(dtFactura);
             for (int i = 0; i < dtFactura.Rows.Count; i++)
             {

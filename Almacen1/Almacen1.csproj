@@ -201,6 +201,18 @@
     <Compile Include="Productos\Frm_Borrar_Producto.Designer.cs">
       <DependentUpon>Frm_Borrar_Producto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\Frm_Borrar_Producto_Observar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_Borrar_Producto_Observar.Designer.cs">
+      <DependentUpon>Frm_Borrar_Producto_Observar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\Frm_Editar_Producto_Observar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_Editar_Producto_Observar.Designer.cs">
+      <DependentUpon>Frm_Editar_Producto_Observar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\Frm_Modificar_SerieYMAC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +376,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_Borrar_Producto.resx">
       <DependentUpon>Frm_Borrar_Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_Borrar_Producto_Observar.resx">
+      <DependentUpon>Frm_Borrar_Producto_Observar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_Editar_Producto_Observar.resx">
+      <DependentUpon>Frm_Editar_Producto_Observar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_Modificar_SerieYMAC.resx">
       <DependentUpon>Frm_Modificar_SerieYMAC.cs</DependentUpon>

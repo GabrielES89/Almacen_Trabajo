@@ -320,3 +320,5 @@ D:\Desktop\Basura\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Pr
 D:\Desktop\Basura\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos.frm_Nuevo_MF.resources
 D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos.frm_Nuevo_MF.resources
 D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos.frm_Nuevo_SF.resources
+D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos.Frm_Borrar_Producto_Observar.resources
+D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos.Frm_Editar_Producto_Observar.resources
