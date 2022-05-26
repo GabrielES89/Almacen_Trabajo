@@ -57,6 +57,11 @@ namespace Almacen1.Class
             string set = "nombre='" + nombre + "', id_marca='" + id_marca + "', modelo='" + modelo + "', parte='" + parte + "', descripcion='" + descripcion + "'";
             return method.update(table, set, "id_producto", id_producto);
         }
+        public bool _update_SMF(string nombre, string Serie, string Mac, string Folio, string Status, string id_Empleado, string id_SMF)
+        {
+            string set = "serie='" + Serie + "', mac='" + Mac + "', id_orden_almacen='" + Folio + "', id_status_producto='" + Status + "', id_empleado='" + id_Empleado + "'";
+            return method.update("tb_series_mac", set, "id_serie_mac", id_SMF);
+        }
         public bool _update_cantidad(string cantidad, string id_producto)
         {
             string set = "cantidad='" + cantidad + "'";

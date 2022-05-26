@@ -12,6 +12,9 @@ namespace Almacen1.Productos
 {
     public partial class Frm_Editar_Producto_Observar : Form
     {
+        // Formas
+        
+
         // Clases
         Class.Cls_Productos ObjProductos = new Class.Cls_Productos();
 
@@ -93,10 +96,24 @@ namespace Almacen1.Productos
         {
             this.Close();
         }
+        string Ids(DataTable dtIds, ComboBox cbIds)
+        {
+            string ids = "";
+            string CbText = cbIds.Text;
+            for (int i = 0; i < dtIds.Rows.Count; i++)
+            {
+                if (CbText == dtIds.Rows[i][1].ToString())
+                {
+                    ids = dtIds.Rows[i][0].ToString();
+                }
+            }
+            return ids;
+        }
 
         private void txtModificar_Click(object sender, EventArgs e)
         {
-            
+            ObjProductos._update_SMF(lblNombre.Text, txtSerie.Text, txtMac.Text, Ids(dtFolio, cbFolio), Ids(dtEstatus, cbEstatus), Login.id_empleado.ToString(), lblId.Text);
+            this.Close();
         }
     }
 }

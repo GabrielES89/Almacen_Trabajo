@@ -57,6 +57,11 @@ namespace Almacen1.Productos
             dt = new DataTable();
             dtProd = new DataTable();
             ObjProductos._consult_Productos_Series_MACs(dt, Id);
+            if (dt.Rows.Count == 0)
+            {
+                this.Close();
+                
+            }
             ObjProductos._consult_Producto(dtProd, Id);
             dt2 = dt.Copy();
             lblProducto.Text = dt2.Rows[0]["Nombre"].ToString();
@@ -314,7 +319,7 @@ namespace Almacen1.Productos
         {
             if (e.ColumnIndex == 1)
             {
-                Ventana_Borrar_SM = new Frm_Borrar_Producto_Observar(dt.Rows[e.RowIndex]["Id_SMF"].ToString(), dt.Rows[e.RowIndex]["Mac"].ToString(), dt.Rows[e.RowIndex]["Serie"].ToString(), Cambios);
+                Ventana_Borrar_SM = new Frm_Borrar_Producto_Observar(dt.Rows[e.RowIndex]["Id_SMF"].ToString(), dt.Rows[e.RowIndex]["Mac"].ToString(), dt.Rows[e.RowIndex]["Serie"].ToString(), Cambios, Cantidad, dt.Rows[0]["Id"].ToString());
                 Ventana_Borrar_SM.ShowDialog();
             }
             if (e.ColumnIndex == 0)
@@ -322,6 +327,7 @@ namespace Almacen1.Productos
                 Ventana_Editar_Productos_SMF = new Frm_Editar_Producto_Observar(dt, e.RowIndex, Cambios);
                 Ventana_Editar_Productos_SMF.ShowDialog();
             }
+                cargar();
         }
     }
 }

@@ -16,12 +16,14 @@ namespace Almacen1.Productos
         Class.Cls_Productos ClaseProductos = new Class.Cls_Productos();
 
         //Variables
-        string Id;
+        string Id_SMF, Cantidad, Id;
 
-        public Frm_Borrar_Producto_Observar(string Id, string Mac, string Serie, int Cambios)
+        public Frm_Borrar_Producto_Observar(string Id_SMF, string Mac, string Serie, int Cambios, string Cantidad, string Id)
         {
             InitializeComponent();
             this.Id = Id;
+            this.Id_SMF = Id_SMF;
+            this.Cantidad = Cantidad;
             switch (Cambios)
             {
                 case 1:
@@ -44,7 +46,9 @@ namespace Almacen1.Productos
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            ClaseProductos._delete_SM(Id);
+            ClaseProductos._delete_SM(Id_SMF);
+            Cantidad = (Convert.ToInt32(Cantidad) - 1).ToString();
+            ClaseProductos._update_cantidad(Cantidad, Id);
             this.Close();
         }
 
