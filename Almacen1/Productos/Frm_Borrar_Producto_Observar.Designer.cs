@@ -1,6 +1,6 @@
 ﻿namespace Almacen1.Productos
 {
-    partial class Frm_Borrar_Producto
+    partial class Frm_Borrar_Producto_Observar
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(499, 256);
-            this.panel2.TabIndex = 7;
+            this.panel2.TabIndex = 8;
             // 
             // panel1
             // 
@@ -108,16 +108,15 @@
             this.lblTitulo.TabIndex = 28;
             this.lblTitulo.Text = "Nombre";
             // 
-            // Frm_Borrar_Producto
+            // Frm_Borrar_Producto_Observar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 277);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_Borrar_Producto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_Borrar_Producto";
+            this.Name = "Frm_Borrar_Producto_Observar";
+            this.Text = "Frm_Borrar_Producto_Observar";
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -129,9 +128,9 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnBaja;
         private System.Windows.Forms.Label lblSubtitulo1;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button btnCancelar;
     }
 }

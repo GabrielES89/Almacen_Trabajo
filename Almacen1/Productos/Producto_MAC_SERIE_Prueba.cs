@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Almacen1.Productos
 {
@@ -42,6 +43,7 @@ namespace Almacen1.Productos
         int AuxPrimera;
         string id_orden_almacen = "";
         string Codigo;
+        bool CondicionCerrar = true;
 
         public Producto_MAC_SERIE_Prueba(int AuxPrimera, DataTable dtN, string id_orden_almacen)
         {
@@ -226,12 +228,14 @@ namespace Almacen1.Productos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            this.DoubleBuffered = true;
             //MAC
             if (AuxPrimera == 1)
             {
                 for (int i = 0; i < DGV1.Rows.Count; i++)
                 {
                     ObjProductos._set_MAC(DGV1["MAC", i].Value.ToString(), Id, id_orden_almacen, Codigo_QR());
+                    Thread.Sleep(10);
                 }
             }
             //Serie
@@ -240,6 +244,7 @@ namespace Almacen1.Productos
                 for (int i = 0; i < DGV1.Rows.Count; i++)
                 {
                     ObjProductos._set_Serie(DGV1["Serie", i].Value.ToString(), Id, id_orden_almacen, Codigo_QR());
+                    Thread.Sleep(10);
                 }
             }
             // MAC y Serie
@@ -248,8 +253,10 @@ namespace Almacen1.Productos
                 for (int i = 0; i < DGV1.Rows.Count; i++)
                 {
                     ObjProductos._set_Serie_MAC(DGV1["Serie", i].Value.ToString(), DGV1["MAC", i].Value.ToString(), Id, id_orden_almacen, Codigo_QR());
+                    Thread.Sleep(10);
                 }
             }
+            CondicionCerrar = false;
             this.Close();
         }
 
@@ -284,6 +291,52 @@ namespace Almacen1.Productos
                 {
                     VentanaModificarMACYSerie = new Productos.Frm_Modificar_SerieYMAC(DGV1, e.RowIndex, AuxPrimera);
                     VentanaModificarMACYSerie.ShowDialog();
+                }
+            }
+        }
+
+        private void PanelSuperior_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void lbl_minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void PicMedio_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void Producto_MAC_SERIE_Prueba_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                PicMedio.BackgroundImage = Properties.Resources.Minimizar;
+            }
+            else
+            {
+                PicMedio.BackgroundImage = Properties.Resources.Max_0;
+            }
+        }
+
+        private void Producto_MAC_SERIE_Prueba_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (CondicionCerrar)
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    e.Cancel = true;
                 }
             }
         }

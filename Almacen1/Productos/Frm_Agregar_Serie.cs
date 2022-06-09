@@ -77,7 +77,6 @@ namespace Almacen1.Productos
                     }
                     txtSerie.Text = Tabla[Columna, Fila].Value.ToString();
                 }
-                txtSerie.Focus();
             }
             else
             {
@@ -86,7 +85,7 @@ namespace Almacen1.Productos
                 tmError.Stop();
                 tmError.Start();
             }
-            
+            txtSerie.Focus();
         }
 
         private void btnReintentar_Click(object sender, EventArgs e)

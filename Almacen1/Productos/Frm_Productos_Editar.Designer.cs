@@ -28,25 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBarra5 = new System.Windows.Forms.Label();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblBarra4 = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblBarra3 = new System.Windows.Forms.Label();
             this.txtParte = new System.Windows.Forms.TextBox();
             this.lblParte = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblBarra2 = new System.Windows.Forms.Label();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.lblModelo = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblBarra1 = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.txtModificar = new System.Windows.Forms.Button();
             this.lblId = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.rtxDescripcion = new System.Windows.Forms.RichTextBox();
+            this.lblNota1 = new System.Windows.Forms.Label();
+            this.lblNota2 = new System.Windows.Forms.Label();
+            this.lblNota3 = new System.Windows.Forms.Label();
+            this.lblNota4 = new System.Windows.Forms.Label();
+            this.tmError = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,17 +70,21 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblNota4);
+            this.panel1.Controls.Add(this.lblNota3);
+            this.panel1.Controls.Add(this.lblNota2);
+            this.panel1.Controls.Add(this.lblNota1);
+            this.panel1.Controls.Add(this.lblBarra5);
             this.panel1.Controls.Add(this.btn_cancelar);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lblBarra4);
             this.panel1.Controls.Add(this.lblDescripcion);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblBarra3);
             this.panel1.Controls.Add(this.txtParte);
             this.panel1.Controls.Add(this.lblParte);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblBarra2);
             this.panel1.Controls.Add(this.txtModelo);
             this.panel1.Controls.Add(this.lblModelo);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblBarra1);
             this.panel1.Controls.Add(this.lblMarca);
             this.panel1.Controls.Add(this.txtModificar);
             this.panel1.Controls.Add(this.lblId);
@@ -87,13 +97,13 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
+            // lblBarra5
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(16, 357);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(434, 2);
-            this.label1.TabIndex = 76;
+            this.lblBarra5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra5.Location = new System.Drawing.Point(16, 357);
+            this.lblBarra5.Name = "lblBarra5";
+            this.lblBarra5.Size = new System.Drawing.Size(434, 2);
+            this.lblBarra5.TabIndex = 76;
             // 
             // btn_cancelar
             // 
@@ -108,13 +118,13 @@
             this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // label4
+            // lblBarra4
             // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(16, 335);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(434, 2);
-            this.label4.TabIndex = 63;
+            this.lblBarra4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra4.Location = new System.Drawing.Point(16, 335);
+            this.lblBarra4.Name = "lblBarra4";
+            this.lblBarra4.Size = new System.Drawing.Size(434, 2);
+            this.lblBarra4.TabIndex = 63;
             // 
             // lblDescripcion
             // 
@@ -127,13 +137,13 @@
             this.lblDescripcion.TabIndex = 62;
             this.lblDescripcion.Text = "Descripción:";
             // 
-            // label2
+            // lblBarra3
             // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(90, 235);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(360, 2);
-            this.label2.TabIndex = 60;
+            this.lblBarra3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra3.Location = new System.Drawing.Point(90, 235);
+            this.lblBarra3.Name = "lblBarra3";
+            this.lblBarra3.Size = new System.Drawing.Size(360, 2);
+            this.lblBarra3.TabIndex = 60;
             // 
             // txtParte
             // 
@@ -158,13 +168,13 @@
             this.lblParte.TabIndex = 59;
             this.lblParte.Text = "Parte:";
             // 
-            // label6
+            // lblBarra2
             // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Location = new System.Drawing.Point(90, 165);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(360, 2);
-            this.label6.TabIndex = 58;
+            this.lblBarra2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra2.Location = new System.Drawing.Point(90, 165);
+            this.lblBarra2.Name = "lblBarra2";
+            this.lblBarra2.Size = new System.Drawing.Size(360, 2);
+            this.lblBarra2.TabIndex = 58;
             // 
             // txtModelo
             // 
@@ -189,13 +199,13 @@
             this.lblModelo.TabIndex = 57;
             this.lblModelo.Text = "Modelo:";
             // 
-            // label5
+            // lblBarra1
             // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(90, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(360, 2);
-            this.label5.TabIndex = 50;
+            this.lblBarra1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBarra1.Location = new System.Drawing.Point(90, 100);
+            this.lblBarra1.Name = "lblBarra1";
+            this.lblBarra1.Size = new System.Drawing.Size(360, 2);
+            this.lblBarra1.TabIndex = 50;
             // 
             // lblMarca
             // 
@@ -267,6 +277,59 @@
             this.rtxDescripcion.TabIndex = 77;
             this.rtxDescripcion.Text = "";
             // 
+            // lblNota1
+            // 
+            this.lblNota1.AutoSize = true;
+            this.lblNota1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota1.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota1.Location = new System.Drawing.Point(87, 108);
+            this.lblNota1.Name = "lblNota1";
+            this.lblNota1.Size = new System.Drawing.Size(36, 13);
+            this.lblNota1.TabIndex = 237;
+            this.lblNota1.Text = "Nota1";
+            this.lblNota1.Visible = false;
+            // 
+            // lblNota2
+            // 
+            this.lblNota2.AutoSize = true;
+            this.lblNota2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota2.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota2.Location = new System.Drawing.Point(87, 177);
+            this.lblNota2.Name = "lblNota2";
+            this.lblNota2.Size = new System.Drawing.Size(36, 13);
+            this.lblNota2.TabIndex = 238;
+            this.lblNota2.Text = "Nota1";
+            this.lblNota2.Visible = false;
+            // 
+            // lblNota3
+            // 
+            this.lblNota3.AutoSize = true;
+            this.lblNota3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota3.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota3.Location = new System.Drawing.Point(87, 247);
+            this.lblNota3.Name = "lblNota3";
+            this.lblNota3.Size = new System.Drawing.Size(36, 13);
+            this.lblNota3.TabIndex = 239;
+            this.lblNota3.Text = "Nota1";
+            this.lblNota3.Visible = false;
+            // 
+            // lblNota4
+            // 
+            this.lblNota4.AutoSize = true;
+            this.lblNota4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota4.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota4.Location = new System.Drawing.Point(17, 362);
+            this.lblNota4.Name = "lblNota4";
+            this.lblNota4.Size = new System.Drawing.Size(36, 13);
+            this.lblNota4.TabIndex = 240;
+            this.lblNota4.Text = "Nota1";
+            this.lblNota4.Visible = false;
+            // 
+            // tmError
+            // 
+            this.tmError.Interval = 5000;
+            this.tmError.Tick += new System.EventHandler(this.tmError_Tick);
+            // 
             // Frm_Productos_Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,21 +353,26 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbMarca;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblBarra1;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Button txtModificar;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblBarra3;
         private System.Windows.Forms.TextBox txtParte;
         private System.Windows.Forms.Label lblParte;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblBarra2;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label lblModelo;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblBarra4;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Button btn_cancelar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBarra5;
         private System.Windows.Forms.RichTextBox rtxDescripcion;
+        private System.Windows.Forms.Label lblNota4;
+        private System.Windows.Forms.Label lblNota3;
+        private System.Windows.Forms.Label lblNota2;
+        private System.Windows.Forms.Label lblNota1;
+        private System.Windows.Forms.Timer tmError;
     }
 }

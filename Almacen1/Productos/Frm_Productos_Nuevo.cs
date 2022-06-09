@@ -64,9 +64,9 @@ namespace Almacen1.Productos
         {
             
             Listas(dtM, cbMarca, 0);
-            Utilidades.autocomplete_combobox(cbMarca);
+            //Utilidades.autocomplete_combobox(cbMarca);
             Listas(dtF, cbFactura, 1);
-            Utilidades.autocomplete_combobox(cbFactura);
+            //Utilidades.autocomplete_combobox(cbFactura);
         }
 
         string Ids(DataTable dtIds, ComboBox cbIds)
@@ -176,7 +176,7 @@ namespace Almacen1.Productos
                 }
             }
             Listas(dtM, cbMarca, 0);
-            Utilidades.autocomplete_combobox(cbMarca);
+            //Utilidades.autocomplete_combobox(cbMarca);
         }
         void Reestablecer()
         {
@@ -388,10 +388,6 @@ namespace Almacen1.Productos
             e.Handled = true;
         }
 
-        private void txtCantidad_KeyDown(object sender, KeyEventArgs e)
-        {
-        }
-
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar))
@@ -401,6 +397,14 @@ namespace Almacen1.Productos
             if (e.KeyChar == '\b')
             {
                 e.Handled = false;
+            }
+        }
+
+        private void cbFactura_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "Delete")
+            {
+                e.Handled = true;
             }
         }
     }

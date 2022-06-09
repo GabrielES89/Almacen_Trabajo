@@ -103,7 +103,6 @@ namespace Almacen1.Productos
                     }
                     txtMac.Text = Tabla[Columna, Fila].Value.ToString();
                 }
-                txtMac.Focus();
             }
             else
             {
@@ -112,6 +111,7 @@ namespace Almacen1.Productos
                 tmError.Stop();
                 tmError.Start();
             }
+            txtMac.Focus();
         }
 
         private void tmError_Tick(object sender, EventArgs e)
