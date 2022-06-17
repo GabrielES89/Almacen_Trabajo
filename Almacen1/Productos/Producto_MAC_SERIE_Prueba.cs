@@ -262,7 +262,7 @@ namespace Almacen1.Productos
 
         private void btnSeries_Click(object sender, EventArgs e)
         {
-            VentanaSerie = new Frm_Agregar_Serie(DGV1, 0, 1);
+            VentanaSerie = new Frm_Agregar_Serie(DGV1, 0, 1, 0);
             VentanaSerie.ShowDialog();
         }
 
@@ -271,11 +271,11 @@ namespace Almacen1.Productos
             switch (AuxPrimera)
             {
                 case 1:
-                    VentanaMAC = new Frm_Agregar_Mac(DGV1, 0, 1);
+                    VentanaMAC = new Frm_Agregar_Mac(DGV1, 0, 1, 0);
                     VentanaMAC.ShowDialog();
                     break;
                 case 3:
-                    VentanaMAC = new Frm_Agregar_Mac(DGV1, 0, 2);
+                    VentanaMAC = new Frm_Agregar_Mac(DGV1, 0, 2, 1);
                     VentanaMAC.ShowDialog();
                     break;
                 default:
@@ -338,6 +338,27 @@ namespace Almacen1.Productos
                 {
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            switch (AuxPrimera)
+            {
+                case 1:
+                    VentanaMAC = new Frm_Agregar_Mac(DGV1, 0, 1, 0);
+                    VentanaMAC.ShowDialog();
+                    break;
+                case 2:
+                    VentanaSerie = new Frm_Agregar_Serie(DGV1, 0, 1, 0);
+                    VentanaSerie.ShowDialog();
+                    break;
+                case 3:
+                    VentanaSerie = new Frm_Agregar_Serie(DGV1, 0, 1, 1);
+                    VentanaSerie.ShowDialog();
+                    break;
+                default:
+                    break;
             }
         }
     }

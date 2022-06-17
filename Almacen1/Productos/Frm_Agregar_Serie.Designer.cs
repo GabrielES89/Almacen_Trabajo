@@ -99,6 +99,7 @@
             this.txtSerie.Size = new System.Drawing.Size(450, 22);
             this.txtSerie.TabIndex = 220;
             this.txtSerie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSerie.TextChanged += new System.EventHandler(this.txtSerie_TextChanged);
             // 
             // lblNombre
             // 
@@ -129,7 +130,7 @@
             this.btnGuardar.BackColor = System.Drawing.Color.Green;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(277, 115);
+            this.btnGuardar.Location = new System.Drawing.Point(273, 115);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(150, 44);
             this.btnGuardar.TabIndex = 224;

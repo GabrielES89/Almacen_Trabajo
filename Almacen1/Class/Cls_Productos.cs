@@ -181,7 +181,7 @@ namespace Almacen1.Class
         }
         public void _consult_Factura(DataTable dt)
         {
-            query = "SELECT id_orden_almacen , folio_orden FROM `tb_orden_almacen`";
+            query = "SELECT id_orden_almacen , folio_orden FROM `tb_orden_almacen` GROUP BY id_orden_almacen";
             method.Consultar(query, dt);
         }
         public bool _delete(string id_producto)

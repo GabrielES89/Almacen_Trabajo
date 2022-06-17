@@ -28,7 +28,6 @@ namespace Almacen1.Productos
         Productos.frm_Nuevo_MF Ventana_MF;
         Productos.Frm_Borrar_Producto_Observar Ventana_Borrar_SM;
         Productos.Frm_Editar_Producto_Observar Ventana_Editar_Productos_SMF;
-         
 
         // Datatable
         DataTable dt = new DataTable();
@@ -327,7 +326,15 @@ namespace Almacen1.Productos
                 Ventana_Editar_Productos_SMF = new Frm_Editar_Producto_Observar(dt, e.RowIndex, Cambios);
                 Ventana_Editar_Productos_SMF.ShowDialog();
             }
-                cargar();
+            if (e.ColumnIndex > 1)
+            {
+                dtCodigo.Clear();
+                ObjRegistro._consult_QR(dtCodigo, dt.Rows[e.RowIndex]["Id_SMF"].ToString());
+                string Codigo = dtCodigo.Rows[0][0].ToString();
+                Ventana_QR = new Registro.Frm_Codigo_QR(Codigo);
+                Ventana_QR.ShowDialog();
+            }
+            cargar();
         }
     }
 }

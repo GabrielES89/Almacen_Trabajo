@@ -20,15 +20,21 @@ namespace Almacen1.Productos
 
         //Variables
         DataGridView Tabla;
-        int Fila, Columna;
+        int Fila, Columna, Caracter, Cambio;
+        string CadenaMac;
+        bool J = true;
+        public Frm_Agregar_Mac()
+        {
 
-        public Frm_Agregar_Mac(DataGridView Tabla, int Fila, int Columna)
+        }
+            public Frm_Agregar_Mac(DataGridView Tabla, int Fila, int Columna, int Cambio)
         {
             InitializeComponent();
             lblFila.Text = (Fila + 1).ToString() + "/" + Tabla.Rows.Count.ToString();
             this.Tabla = Tabla;
             this.Fila = Fila;
             this.Columna = Columna;
+            this.Cambio = Cambio;
             txtMac.Text = Tabla[Columna, Fila].Value.ToString();
         }
 
@@ -71,53 +77,138 @@ namespace Almacen1.Productos
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            bool CondiMAC = true;
-            for (int i = 0; i < Fila; i++)
+            bool Error = true;
+            if (txtMac.Text.Length != 17)
             {
-                if (Tabla["MAC", i].Value.ToString() == txtMac.Text)
-                {
-                    CondiMAC = false;
-                }
-            }
-            if (CondiMAC)
-            {
-                if (txtMac.Text == "")
-                {
-                    lblErrorMAC.Text = "La MAC no puede estar vacia.";
-                    lblErrorMAC.Visible = true;
-                    tmError.Stop();
-                    tmError.Start();
-                }
-                else
-                {
-                    Tabla[Columna, Fila].Value = txtMac.Text;
-                    txtMac.Text = "";
-                    if (Fila == Tabla.Rows.Count - 1)
-                    {
-                        this.Close();
-                    }
-                    else
-                    {
-                        this.Fila = Fila + 1;
-                        lblFila.Text = (Fila + 1).ToString() + "/" + Tabla.Rows.Count.ToString();
-                    }
-                    txtMac.Text = Tabla[Columna, Fila].Value.ToString();
-                }
-            }
-            else
-            {
-                lblErrorMAC.Text = "La MAC no puede ser repetida.";
+                Error = false;
+                lblErrorMAC.Text = "La mac no puede ser menor o mayor a doce caracteres";
                 lblErrorMAC.Visible = true;
                 tmError.Stop();
                 tmError.Start();
             }
+            else
+            {
+                bool CondiMAC = true;
+                for (int i = 0; i < Fila; i++)
+                {
+                    if (Tabla["MAC", i].Value.ToString() == txtMac.Text)
+                    {
+                        CondiMAC = false;
+                    }
+                }
+                if (CondiMAC)
+                {
+                    if (txtMac.Text == "")
+                    {
+                        Error = false;
+                        lblErrorMAC.Text = "La MAC no puede estar vacia.";
+                        lblErrorMAC.Visible = true;
+                        tmError.Stop();
+                        tmError.Start();
+                    }
+                    else
+                    {
+                        //DosPuntos(txtMac);
+                        Tabla[Columna, Fila].Value = txtMac.Text;
+                        txtMac.Text = "";
+                        if (Fila == Tabla.Rows.Count - 1)
+                        {
+                            this.Close();
+                        }
+                        else
+                        {
+                            this.Fila = Fila + 1;
+                            lblFila.Text = (Fila + 1).ToString() + "/" + Tabla.Rows.Count.ToString();
+                        }
+                        txtMac.Text = Tabla[Columna, Fila].Value.ToString();
+                    }
+                }
+                else
+                {
+                    Error = false;
+                    lblErrorMAC.Text = "La MAC no puede ser repetida.";
+                    lblErrorMAC.Visible = true;
+                    tmError.Stop();
+                    tmError.Start();
+                }
+            }
+            if (Cambio == 1)
+            {
+                if (Error)
+                {
+                    Caracter = 0;
+                    this.Close();
+                }
+            }
+            if (Error)
+            {
+                Caracter = 0;
+            }
             txtMac.Focus();
+        }
+        void DosPuntos(TextBox TextoMasDosPuntos)
+        {
+            string Cambio = "";
+            for (int i = 0; i < 6; i++)
+            {
+                Cambio += TextoMasDosPuntos.Text.Substring(i * 2, 2);
+                if (!(i == 5))
+                {
+                    Cambio += ":";
+                }
+            }
+            TextoMasDosPuntos.Text = Cambio;
+        }
+
+        private void txtMac_TextChanged(object sender, EventArgs e)
+        {
+            txtMac.Select(txtMac.Text.Length, 1);
+            txtMac.Text = txtMac.Text.ToUpper();
         }
 
         private void tmError_Tick(object sender, EventArgs e)
         {
             lblErrorMAC.Visible = false;
             tmError.Stop();
+        }
+
+        private void txtMac_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Caracter < 17)
+            {
+                if (char.IsLetterOrDigit(e.KeyChar))
+                {
+                    J = true;
+                    Caracter++;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            if (!(Caracter == 0))
+            {
+                if (e.KeyChar == 8)
+                {
+                    Caracter--;
+                    e.Handled = false;
+                    J = false;
+                }
+            }
+            if (J)
+            {
+                if (Caracter % 3 == 0 && Caracter != 0)
+                {
+                    Caracter++;
+                    txtMac.Text += ":";
+                    txtMac.Select(txtMac.Text.Length, 1);
+                    J = true;
+                }
+            }
         }
 
         private void btnReintentar_Click(object sender, EventArgs e)
