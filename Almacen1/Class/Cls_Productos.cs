@@ -57,6 +57,11 @@ namespace Almacen1.Class
             string set = "nombre='" + nombre + "', id_marca='" + id_marca + "', modelo='" + modelo + "', parte='" + parte + "', descripcion='" + descripcion + "'";
             return method.update(table, set, "id_producto", id_producto);
         }
+        public bool _update_SMF(string nombre, string Serie, string Mac, string Folio, string Status, string id_Empleado, string id_SMF)
+        {
+            string set = "serie='" + Serie + "', mac='" + Mac + "', id_orden_almacen='" + Folio + "', id_status_producto='" + Status + "', id_empleado='" + id_Empleado + "'";
+            return method.update("tb_series_mac", set, "id_serie_mac", id_SMF);
+        }
         public bool _update_cantidad(string cantidad, string id_producto)
         {
             string set = "cantidad='" + cantidad + "'";
@@ -92,9 +97,9 @@ namespace Almacen1.Class
             query = "SELECT T_P.id_producto as id, T_P.nombre, T_M.marca, T_P.modelo, T_P.parte, T_P.descripcion, T_P.cantidad  FROM `tb_productos` AS T_P INNER JOIN tb_marca AS T_M ON T_P.id_marca = T_M.id_marca WHERE T_P.nombre = '" + Nombre + "'";
             method.Consultar(query, dt);
         }
-        public void _consult_Buscar(DataTable dt, string Nombre)
+        public void _consult_Buscar(DataTable dt, string Nombre, string Campo)
         {
-            query = "SELECT T_P.id_producto as id, T_P.nombre as Nombre, T_M.marca as Marca, T_P.modelo as Modelo, T_P.parte as Parte, T_P.descripcion as Descripción, T_P.cantidad as Cantidad  FROM `tb_productos` AS T_P INNER JOIN tb_marca AS T_M ON T_P.id_marca = T_M.id_marca WHERE nombre LIKE '%" + Nombre + "%'";
+            query = "SELECT T_P.id_producto as id, T_P.nombre as Nombre, T_M.marca as Marca, T_P.modelo as Modelo, T_P.parte as Parte, T_P.descripcion as Descripción, T_P.cantidad as Cantidad  FROM `tb_productos` AS T_P INNER JOIN tb_marca AS T_M ON T_P.id_marca = T_M.id_marca WHERE " + Campo + " LIKE '%" + Nombre + "%'";
             method.Consultar(query, dt);
         }
         public void _consult_Buscar_MSF(DataTable dt, string Nombre)
@@ -102,9 +107,34 @@ namespace Almacen1.Class
             query = "SELECT T_P.id_producto as id, T_P.nombre as Nombre, T_M.marca as Marca, T_P.modelo as Modelo, T_P.parte as Parte, T_P.descripcion as Descripción, T_P.cantidad as Cantidad  FROM `tb_productos` AS T_P INNER JOIN tb_marca AS T_M ON T_P.id_marca = T_M.id_marca WHERE nombre LIKE '%" + Nombre + "%'";
             method.Consultar(query, dt);
         }
-        public void _consult_Serie(DataTable dt)
+        public void _consult_MSF_Buscar_Todos(DataTable dt, string Campo, string Valor, string Id)
         {
-            query = "SELECT id_mac FROM `tb_macs` GROUP BY id_mac DESC LIMIT 1";
+            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', " + Campo + ", T2.folio_orden as Folio, T3.status_producto as Status FROM `tb_series_mac` as T1 INNER JOIN tb_orden_almacen as T2 ON T2.id_orden_almacen = T1.id_orden_almacen INNER JOIN tb_status_producto as T3 ON T3.id_status_producto = T1.id_status_producto WHERE " + Campo + " LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' OR T2.folio_orden LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' OR T3.status_producto LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' GROUP BY id_serie_mac";
+            method.Consultar(query, dt);
+        }
+        public void _consult_MSF_Buscar(DataTable dt, string Campo1, string Campo2, string Valor, string Id)
+        {
+            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', " + Campo2 + ", T2.folio_orden as Folio, T3.status_producto as Status FROM `tb_series_mac` as T1 INNER JOIN tb_orden_almacen as T2 ON T2.id_orden_almacen = T1.id_orden_almacen INNER JOIN tb_status_producto as T3 ON T3.id_status_producto = T1.id_status_producto WHERE " + Campo1 + " LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' GROUP BY id_serie_mac";
+            method.Consultar(query, dt);
+        }
+        public void _consult_MSF(DataTable dt, string Campo, string Valor, string Id)
+        {
+            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', " + Campo + ", T2.folio_orden as Folio, T3.status_producto as Status FROM `tb_series_mac` as T1 INNER JOIN tb_orden_almacen as T2 ON T2.id_orden_almacen = T1.id_orden_almacen INNER JOIN tb_status_producto as T3 ON T3.id_status_producto = T1.id_status_producto WHERE " + Campo + " = '" + Valor + "' AND id_producto = '" + Id + "' GROUP BY id_serie_mac";
+            method.Consultar(query, dt);
+        }
+        public void _consult_MSF_ConFolio(DataTable dt, string Campo, string Valor, string Id)
+        {
+            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', T1." + Campo + ", T2.folio_orden as Folio, T3.status_producto as Status FROM `tb_series_mac` as T1 INNER JOIN tb_orden_almacen as T2 ON T2.id_orden_almacen = T1.id_orden_almacen INNER JOIN tb_status_producto as T3 ON T3.id_status_producto = T1.id_status_producto WHERE T2.folio_orden LIKE '%" + Valor + "%' AND id_producto = '" + Id + "' GROUP BY id_serie_mac";
+            method.Consultar(query, dt);
+        }
+        public void _consult_Buscar(DataTable dt, string Campo, string Valor, string Id)
+        {
+            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', T_S_M.serie as Serie, T_S_M.mac as MAC, T_O.folio_orden as Folio, T_S_P.status_producto as Status FROM `tb_productos` as T_P INNER JOIN tb_series_mac as T_S_M ON T_P.id_producto = T_S_M.id_producto INNER JOIN tb_orden_almacen as T_O on T_S_M.id_orden_almacen = T_O.id_orden_almacen INNER JOIN tb_status_producto as T_S_P ON T_S_M.id_status_producto = T_S_P.id_status_producto WHERE " + Campo + " LIKE '%" + Valor + "%' AND T_S_M.id_producto = '" + Id + "' GROUP BY T_S_M.id_serie_mac";
+            method.Consultar(query, dt);
+        }
+        public void _consult_Buscar_Todos(DataTable dt, string Valor, string Id)
+        {
+            query = "SELECT ROW_NUMBER() OVER (ORDER by id_serie_mac) AS 'Indice', T_S_M.serie as Serie, T_S_M.mac as MAC, T_O.folio_orden as Folio, T_S_P.status_producto as Status FROM `tb_productos` as T_P INNER JOIN tb_series_mac as T_S_M ON T_P.id_producto = T_S_M.id_producto INNER JOIN tb_orden_almacen as T_O on T_S_M.id_orden_almacen = T_O.id_orden_almacen INNER JOIN tb_status_producto as T_S_P ON T_S_M.id_status_producto = T_S_P.id_status_producto WHERE T_S_M.mac LIKE '%" + Valor + "%' AND T_S_M.id_producto = '" + Id + "' OR T_S_M.serie LIKE '%" + Valor + "%' AND T_S_M.id_producto = '" + Id + "' OR T_O.folio_orden LIKE '%" + Valor + "%' AND T_S_M.id_producto = '" + Id + "' OR T_S_P.status_producto LIKE '%" + Valor + "%' AND T_S_M.id_producto = " + Id + " GROUP BY T_S_M.id_serie_mac";
             method.Consultar(query, dt);
         }
         public void _consult_Status(DataTable dt)
@@ -131,7 +161,7 @@ namespace Almacen1.Class
         }
         public void _consult_Productos_Series_MACs(DataTable dt, string Id)
         {
-            query = "SELECT T_S_M.id_serie_mac as Id_SMF, T_P.id_producto as id, T_P.nombre as Nombre, T_S_M.serie as Serie, T_S_M.mac as MAC, T_O.folio_orden as Folio, T_S_P.status_producto as Status FROM `tb_productos` as T_P INNER JOIN tb_series_mac as T_S_M ON T_P.id_producto = T_S_M.id_producto INNER JOIN tb_orden_almacen as T_O on T_S_M.id_orden_almacen = T_O.id_orden_almacen INNER JOIN tb_status_producto as T_S_P ON T_S_M.id_status_producto = T_S_P.id_status_producto WHERE T_P.id_producto = '" + Id + "'";
+            query = "SELECT ROW_NUMBER() OVER (ORDER by T_S_M.id_serie_mac) AS 'Indice', T_S_M.id_serie_mac as Id_SMF, T_P.id_producto as id, T_P.nombre as Nombre, T_S_M.serie as Serie, T_S_M.mac as MAC, T_O.folio_orden as Folio, T_S_P.status_producto as Status FROM `tb_productos` as T_P INNER JOIN tb_series_mac as T_S_M ON T_P.id_producto = T_S_M.id_producto INNER JOIN tb_orden_almacen as T_O on T_S_M.id_orden_almacen = T_O.id_orden_almacen INNER JOIN tb_status_producto as T_S_P ON T_S_M.id_status_producto = T_S_P.id_status_producto WHERE T_P.id_producto = '" + Id + "' GROUP BY T_S_M.id_serie_mac";
             method.Consultar(query, dt);
         }
         public void _consult_Productos_SMF(DataTable dt, string Id)
@@ -151,12 +181,16 @@ namespace Almacen1.Class
         }
         public void _consult_Factura(DataTable dt)
         {
-            query = "SELECT id_orden_almacen , folio_orden FROM `tb_orden_almacen`";
+            query = "SELECT id_orden_almacen , folio_orden FROM `tb_orden_almacen` GROUP BY id_orden_almacen";
             method.Consultar(query, dt);
         }
         public bool _delete(string id_producto)
         {
             return method.delete(table, "id_producto ", id_producto);
+        }
+        public bool _delete_SM(string Id_SM)
+        {
+            return method.delete("tb_series_mac", "id_serie_mac ", Id_SM);
         }
     }
 }

@@ -32,6 +32,13 @@
             this.cbxSeries = new System.Windows.Forms.CheckBox();
             this.cbxMAC = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNota7 = new System.Windows.Forms.Label();
+            this.lblNota6 = new System.Windows.Forms.Label();
+            this.lblNota5 = new System.Windows.Forms.Label();
+            this.lblNota4 = new System.Windows.Forms.Label();
+            this.lblNota3 = new System.Windows.Forms.Label();
+            this.lblNota2 = new System.Windows.Forms.Label();
+            this.lblNota1 = new System.Windows.Forms.Label();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.lblBarra7 = new System.Windows.Forms.Label();
@@ -58,13 +65,6 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tmError = new System.Windows.Forms.Timer(this.components);
-            this.lblNota1 = new System.Windows.Forms.Label();
-            this.lblNota2 = new System.Windows.Forms.Label();
-            this.lblNota3 = new System.Windows.Forms.Label();
-            this.lblNota4 = new System.Windows.Forms.Label();
-            this.lblNota5 = new System.Windows.Forms.Label();
-            this.lblNota6 = new System.Windows.Forms.Label();
-            this.lblNota7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +132,90 @@
             this.panel1.Size = new System.Drawing.Size(481, 611);
             this.panel1.TabIndex = 32;
             // 
+            // lblNota7
+            // 
+            this.lblNota7.AutoSize = true;
+            this.lblNota7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota7.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota7.Location = new System.Drawing.Point(12, 487);
+            this.lblNota7.Name = "lblNota7";
+            this.lblNota7.Size = new System.Drawing.Size(36, 13);
+            this.lblNota7.TabIndex = 242;
+            this.lblNota7.Text = "Nota7";
+            this.lblNota7.Visible = false;
+            // 
+            // lblNota6
+            // 
+            this.lblNota6.AutoSize = true;
+            this.lblNota6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota6.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota6.Location = new System.Drawing.Point(12, 418);
+            this.lblNota6.Name = "lblNota6";
+            this.lblNota6.Size = new System.Drawing.Size(36, 13);
+            this.lblNota6.TabIndex = 241;
+            this.lblNota6.Text = "Nota6";
+            this.lblNota6.Visible = false;
+            // 
+            // lblNota5
+            // 
+            this.lblNota5.AutoSize = true;
+            this.lblNota5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota5.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota5.Location = new System.Drawing.Point(12, 342);
+            this.lblNota5.Name = "lblNota5";
+            this.lblNota5.Size = new System.Drawing.Size(36, 13);
+            this.lblNota5.TabIndex = 240;
+            this.lblNota5.Text = "Nota5";
+            this.lblNota5.Visible = false;
+            // 
+            // lblNota4
+            // 
+            this.lblNota4.AutoSize = true;
+            this.lblNota4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota4.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota4.Location = new System.Drawing.Point(12, 276);
+            this.lblNota4.Name = "lblNota4";
+            this.lblNota4.Size = new System.Drawing.Size(36, 13);
+            this.lblNota4.TabIndex = 239;
+            this.lblNota4.Text = "Nota4";
+            this.lblNota4.Visible = false;
+            // 
+            // lblNota3
+            // 
+            this.lblNota3.AutoSize = true;
+            this.lblNota3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota3.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota3.Location = new System.Drawing.Point(12, 216);
+            this.lblNota3.Name = "lblNota3";
+            this.lblNota3.Size = new System.Drawing.Size(36, 13);
+            this.lblNota3.TabIndex = 238;
+            this.lblNota3.Text = "Nota3";
+            this.lblNota3.Visible = false;
+            // 
+            // lblNota2
+            // 
+            this.lblNota2.AutoSize = true;
+            this.lblNota2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota2.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota2.Location = new System.Drawing.Point(12, 159);
+            this.lblNota2.Name = "lblNota2";
+            this.lblNota2.Size = new System.Drawing.Size(36, 13);
+            this.lblNota2.TabIndex = 237;
+            this.lblNota2.Text = "Nota2";
+            this.lblNota2.Visible = false;
+            // 
+            // lblNota1
+            // 
+            this.lblNota1.AutoSize = true;
+            this.lblNota1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota1.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota1.Location = new System.Drawing.Point(12, 94);
+            this.lblNota1.Name = "lblNota1";
+            this.lblNota1.Size = new System.Drawing.Size(36, 13);
+            this.lblNota1.TabIndex = 236;
+            this.lblNota1.Text = "Nota1";
+            this.lblNota1.Visible = false;
+            // 
             // btn_cancelar
             // 
             this.btn_cancelar.BackColor = System.Drawing.Color.Maroon;
@@ -177,7 +261,6 @@
             this.txtCantidad.Size = new System.Drawing.Size(452, 29);
             this.txtCantidad.TabIndex = 70;
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidad_KeyDown);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblCantidad
@@ -232,6 +315,7 @@
             this.cbFactura.Name = "cbFactura";
             this.cbFactura.Size = new System.Drawing.Size(452, 26);
             this.cbFactura.TabIndex = 66;
+            this.cbFactura.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbFactura_KeyDown);
             this.cbFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFactura_KeyPress);
             this.cbFactura.Leave += new System.EventHandler(this.cbFactura_Leave);
             // 
@@ -402,90 +486,6 @@
             // 
             this.tmError.Interval = 5000;
             this.tmError.Tick += new System.EventHandler(this.tmError_Tick);
-            // 
-            // lblNota1
-            // 
-            this.lblNota1.AutoSize = true;
-            this.lblNota1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota1.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblNota1.Location = new System.Drawing.Point(12, 94);
-            this.lblNota1.Name = "lblNota1";
-            this.lblNota1.Size = new System.Drawing.Size(36, 13);
-            this.lblNota1.TabIndex = 236;
-            this.lblNota1.Text = "Nota1";
-            this.lblNota1.Visible = false;
-            // 
-            // lblNota2
-            // 
-            this.lblNota2.AutoSize = true;
-            this.lblNota2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota2.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblNota2.Location = new System.Drawing.Point(12, 159);
-            this.lblNota2.Name = "lblNota2";
-            this.lblNota2.Size = new System.Drawing.Size(36, 13);
-            this.lblNota2.TabIndex = 237;
-            this.lblNota2.Text = "Nota2";
-            this.lblNota2.Visible = false;
-            // 
-            // lblNota3
-            // 
-            this.lblNota3.AutoSize = true;
-            this.lblNota3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota3.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblNota3.Location = new System.Drawing.Point(12, 216);
-            this.lblNota3.Name = "lblNota3";
-            this.lblNota3.Size = new System.Drawing.Size(36, 13);
-            this.lblNota3.TabIndex = 238;
-            this.lblNota3.Text = "Nota3";
-            this.lblNota3.Visible = false;
-            // 
-            // lblNota4
-            // 
-            this.lblNota4.AutoSize = true;
-            this.lblNota4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota4.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblNota4.Location = new System.Drawing.Point(12, 276);
-            this.lblNota4.Name = "lblNota4";
-            this.lblNota4.Size = new System.Drawing.Size(36, 13);
-            this.lblNota4.TabIndex = 239;
-            this.lblNota4.Text = "Nota4";
-            this.lblNota4.Visible = false;
-            // 
-            // lblNota5
-            // 
-            this.lblNota5.AutoSize = true;
-            this.lblNota5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota5.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblNota5.Location = new System.Drawing.Point(12, 342);
-            this.lblNota5.Name = "lblNota5";
-            this.lblNota5.Size = new System.Drawing.Size(36, 13);
-            this.lblNota5.TabIndex = 240;
-            this.lblNota5.Text = "Nota5";
-            this.lblNota5.Visible = false;
-            // 
-            // lblNota6
-            // 
-            this.lblNota6.AutoSize = true;
-            this.lblNota6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota6.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblNota6.Location = new System.Drawing.Point(12, 418);
-            this.lblNota6.Name = "lblNota6";
-            this.lblNota6.Size = new System.Drawing.Size(36, 13);
-            this.lblNota6.TabIndex = 241;
-            this.lblNota6.Text = "Nota6";
-            this.lblNota6.Visible = false;
-            // 
-            // lblNota7
-            // 
-            this.lblNota7.AutoSize = true;
-            this.lblNota7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota7.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblNota7.Location = new System.Drawing.Point(12, 487);
-            this.lblNota7.Name = "lblNota7";
-            this.lblNota7.Size = new System.Drawing.Size(36, 13);
-            this.lblNota7.TabIndex = 242;
-            this.lblNota7.Text = "Nota7";
-            this.lblNota7.Visible = false;
             // 
             // Frm_Productos_Nuevo
             // 

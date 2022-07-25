@@ -33,7 +33,6 @@ namespace Almacen1.Productos
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ListadoProductos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelSuperior = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -41,6 +40,7 @@ namespace Almacen1.Productos
             this.btnIzquierda = new System.Windows.Forms.Button();
             this.cbLista = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cbBuscarTipo = new System.Windows.Forms.ComboBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -131,12 +131,33 @@ namespace Almacen1.Productos
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.Teal;
+            this.panel4.Controls.Add(this.cbBuscarTipo);
             this.panel4.Controls.Add(this.lblBusqueda);
             this.panel4.Controls.Add(this.txtBuscar);
             this.panel4.Location = new System.Drawing.Point(124, 5);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(516, 40);
             this.panel4.TabIndex = 214;
+            // 
+            // cbBuscarTipo
+            // 
+            this.cbBuscarTipo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cbBuscarTipo.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBuscarTipo.FormattingEnabled = true;
+            this.cbBuscarTipo.Items.AddRange(new object[] {
+            "Nombre",
+            "Marca",
+            "Modelo",
+            "Parte",
+            "Descripcion",
+            "Cantidad"});
+            this.cbBuscarTipo.Location = new System.Drawing.Point(407, 7);
+            this.cbBuscarTipo.Name = "cbBuscarTipo";
+            this.cbBuscarTipo.Size = new System.Drawing.Size(106, 28);
+            this.cbBuscarTipo.TabIndex = 13;
+            this.cbBuscarTipo.Tag = "T_P.descripcion";
+            this.cbBuscarTipo.SelectedIndexChanged += new System.EventHandler(this.cbBuscarTipo_SelectedIndexChanged);
+            this.cbBuscarTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbBuscarTipo_KeyPress);
             // 
             // lblBusqueda
             // 
@@ -155,8 +176,9 @@ namespace Almacen1.Productos
             this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(99, 7);
+            this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(408, 26);
+            this.txtBuscar.Size = new System.Drawing.Size(302, 28);
             this.txtBuscar.TabIndex = 12;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
@@ -232,17 +254,13 @@ namespace Almacen1.Productos
             this.DGV1.TabIndex = 215;
             this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
             this.DGV1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGV1_KeyDown);
-            this.DGV1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DGV1_MouseDown);
-            this.DGV1.MouseEnter += new System.EventHandler(this.DGV1_MouseEnter);
-            this.DGV1.MouseHover += new System.EventHandler(this.DGV1_MouseHover);
             this.DGV1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DGV1_MouseMove);
-            this.DGV1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DGV1_MouseUp);
             // 
             // Editar
             // 
             this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.NullValue = null;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Editar.DefaultCellStyle = dataGridViewCellStyle2;
             this.Editar.HeaderText = "Editar";
@@ -267,7 +285,7 @@ namespace Almacen1.Productos
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle5.NullValue")));
+            dataGridViewCellStyle5.NullValue = null;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -394,5 +412,6 @@ namespace Almacen1.Productos
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.Label lblPorTerminar;
         private System.Windows.Forms.Label lblSNStock;
+        private System.Windows.Forms.ComboBox cbBuscarTipo;
     }
 }

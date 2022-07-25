@@ -104,12 +104,105 @@ namespace Almacen1.Productos
         {
             
         }
-
+        private void tmError_Tick(object sender, EventArgs e)
+        {
+            lblNota1.Visible = false;
+            lblBarra1.BackColor = SystemColors.Window;
+            lblBarra1.Height = 2;
+            lblNota2.Visible = false;
+            lblBarra2.BackColor = SystemColors.Window;
+            lblBarra2.Height = 2;
+            lblNota3.Visible = false;
+            lblBarra3.BackColor = SystemColors.Window;
+            lblBarra3.Height = 2;
+            lblNota4.Visible = false;
+            lblBarra4.BackColor = SystemColors.Window;
+            lblBarra4.Height = 2;
+            lblBarra5.BackColor = SystemColors.Window;
+            lblBarra5.Height = 2;
+            tmError.Stop();
+        }
+        bool ComprobarCampos()
+        {
+            bool ComprobarDatos = true;
+            if (cbMarca.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota1.Text = "Este campo no puede estar vacio.";
+                lblNota1.Visible = true;
+                lblBarra1.BackColor = Color.Red;
+                lblBarra1.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota1.Visible = false;
+                lblBarra1.BackColor = SystemColors.Window;
+                lblBarra1.Height = 2;
+            }
+            if (txtModelo.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota2.Text = "Este campo no puede estar vacio.";
+                lblNota2.Visible = true;
+                lblBarra2.BackColor = Color.Red;
+                lblBarra2.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota2.Visible = false;
+                lblBarra2.BackColor = SystemColors.Window;
+                lblBarra2.Height = 2;
+            }
+            if (txtParte.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota3.Text = "Este campo no puede estar vacio.";
+                lblNota3.Visible = true;
+                lblBarra3.BackColor = Color.Red;
+                lblBarra3.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota3.Visible = false;
+                lblBarra3.BackColor = SystemColors.Window;
+                lblBarra3.Height = 2;
+            }
+            if (rtxDescripcion.Text == "")
+            {
+                ComprobarDatos = false;
+                lblNota4.Text = "Este campo no puede estar vacio.";
+                lblNota4.Visible = true;
+                lblBarra4.BackColor = Color.Red;
+                lblBarra4.Height = 3;
+                lblBarra5.BackColor = Color.Red;
+                lblBarra5.Height = 3;
+                tmError.Stop();
+                tmError.Start();
+            }
+            else
+            {
+                lblNota4.Visible = false;
+                lblBarra4.BackColor = SystemColors.Window;
+                lblBarra4.Height = 2;
+                lblBarra5.BackColor = SystemColors.Window;
+                lblBarra5.Height = 2;
+            }
+            return ComprobarDatos;
+        }
         private void txtModificar_Click(object sender, EventArgs e)
         {
-            ObjProductos._update(lblNombre.Text, Ids(dtM, cbMarca), txtModelo.Text, txtParte.Text, rtxDescripcion.Text, lblId.Text);
-            DelegadoActualizar();
-            this.Close();
+            if (ComprobarCampos())
+            {
+                ObjProductos._update(lblNombre.Text, Ids(dtM, cbMarca), txtModelo.Text, txtParte.Text, rtxDescripcion.Text, lblId.Text);
+                DelegadoActualizar();
+                this.Close();
+            }
         }
 
         private void cbMarca_Leave(object sender, EventArgs e)

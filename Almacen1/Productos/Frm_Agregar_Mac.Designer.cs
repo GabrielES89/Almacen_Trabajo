@@ -93,11 +93,13 @@
             this.txtMac.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMac.Location = new System.Drawing.Point(10, 60);
-            this.txtMac.MaxLength = 50;
+            this.txtMac.MaxLength = 17;
             this.txtMac.Name = "txtMac";
             this.txtMac.Size = new System.Drawing.Size(450, 22);
             this.txtMac.TabIndex = 227;
             this.txtMac.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMac.TextChanged += new System.EventHandler(this.txtMac_TextChanged);
+            this.txtMac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMac_KeyPress);
             // 
             // lblNombre
             // 

@@ -34,9 +34,6 @@ namespace Almacen1.Productos
         int Contador2 = 0;
         int Contador = 0;
         bool PrimeraVez = false;
-        int SinStock = 0;
-        int Porterminar = 0;
-        int EnStock = 0;
 
         public Frm_ListadoProductos()
         {
@@ -113,7 +110,9 @@ namespace Almacen1.Productos
         }
         void Stocks ()
         {
-
+            int SinStock = 0;
+            int Porterminar = 0;
+            int EnStock = 0;
             for (int i = 0; i < dt2.Rows.Count; i++)
             {
                 if (dt2.Rows[i][5].ToString() == "0")
@@ -133,7 +132,7 @@ namespace Almacen1.Productos
             lblPorTerminar.Text = "Por terminar: " + Porterminar;
             lblStock.Text = "En stock: " + EnStock;
         }
-        void Carga()
+        public void Carga()
         {
             dt1.Clear();
             dt2.Clear();
@@ -168,6 +167,7 @@ namespace Almacen1.Productos
         {
             Carga();
             PrimeraVez = true;
+            cbBuscarTipo.SelectedIndex = 0;
         }
         void Producto (DataTable dt)
         {
@@ -238,9 +238,10 @@ namespace Almacen1.Productos
                     ObjProductos._consult_Productos_Series_MACs(dtO1, dt1.Rows[e.RowIndex + (Paginas * 21)][0].ToString());
                     if (dtO1.Rows.Count != 0)
                     {
-                        FormaObservar = new Frm_Productos__Observar(dtO1);
-                        FormaObservar.Show();
-                        Observar_Prueba = new Observar_Prueba(dtO1, DGV1["Marca", e.RowIndex].Value.ToString(), DGV1["Modelo", e.RowIndex].Value.ToString(), DGV1["Parte", e.RowIndex].Value.ToString(), DGV1["Descripción", e.RowIndex].Value.ToString(), DGV1["Cantidad", e.RowIndex].Value.ToString());
+                        //FormaObservar = new Frm_Productos__Observar(dtO1);
+                        //FormaObservar.Show();
+                        Observar_Prueba = new Observar_Prueba(dtO1.Rows[0]["Id"].ToString());
+                        Observar_Prueba.Actualizar = Carga;
                         Observar_Prueba.Show();
                     }
                     else
@@ -252,11 +253,11 @@ namespace Almacen1.Productos
                 {
                     if (e.ColumnIndex == 0)
                     {
-                        EditarEmpleados(e.RowIndex + (Paginas * 22));
+                        EditarEmpleados(e.RowIndex + (Paginas * 21));
                     }
                     if (e.ColumnIndex == 1)
                     {
-                        FormaBorrar = new Frm_Borrar_Producto(dt1.Rows[e.RowIndex + (Paginas * 22)][0].ToString(), dt1.Rows[e.RowIndex + (Paginas * 22)][1].ToString());
+                        FormaBorrar = new Frm_Borrar_Producto(dt1.Rows[e.RowIndex + (Paginas * 21)][0].ToString(), dt1.Rows[e.RowIndex + (Paginas * 21)][1].ToString());
                         FormaBorrar.ShowDialog();
                         Carga();
                     }
@@ -267,13 +268,41 @@ namespace Almacen1.Productos
         {
             dt1.Clear();
             dt2.Clear();
-            ObjProductos._consult_Buscar(dt1, txtBuscar.Text);
+            switch (cbBuscarTipo.SelectedIndex)
+            {
+                // Nombre.
+                case 0:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+                // Marca.
+                case 1:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+                // Modelo.
+                case 2:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+                // Parte.
+                case 3:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+                // Descripción.
+                case 4:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Tag.ToString());
+                    break;
+                // Cantidad.
+                case 5:
+                    ObjProductos._consult_Buscar(dt1, txtBuscar.Text, cbBuscarTipo.Text);
+                    break;
+            }
             dt2 = dt1.Copy();
             dt2.Columns.Remove("id");
+            Stocks();
             CargarCantidadDePaginas();
             Paginas = 0;
             cbLista.Text = Paginas.ToString();
-            DGV1.RowCount = 22;
+            DGV1.RowCount = 21;
+            lblTotal.Text = "Productos: " + dt2.Rows.Count;
             ActucalizarPagina();
             this.Invoke(new Action(() => DGV1.Columns["Editar"].DisplayIndex = DGV1.Columns.Count - 1));
             this.Invoke(new Action(() => DGV1.Columns["Borrar"].DisplayIndex = DGV1.Columns.Count - 1));
@@ -328,24 +357,30 @@ namespace Almacen1.Productos
 
         private void DGV1_KeyDown(object sender, KeyEventArgs e)
         {
-            
-        }
-
-        private void DGV1_MouseDown(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void DGV1_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
-        private void DGV1_MouseUp(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void DGV1_MouseHover(object sender, EventArgs e)
-        {
-            
+            if (e.KeyCode.ToString() == "Up")
+            {
+                Paginas++;
+                if (Paginas < Contador)
+                {
+                    ActucalizarPagina();
+                }
+                if (Paginas == Contador)
+                {
+                    Paginas--;
+                }
+            }
+            if (e.KeyCode.ToString() == "Down")
+            {
+                Paginas--;
+                if (Paginas > -1)
+                {
+                    ActucalizarPagina();
+                }
+                if (Paginas == -1)
+                {
+                    Paginas++;
+                }
+            }
         }
 
         private void DGV1_MouseMove(object sender, MouseEventArgs e)
@@ -354,6 +389,28 @@ namespace Almacen1.Productos
             {
                 MessageBox.Show("Hola");
             }
+        }
+        void BuscarNombre()
+        {
+
+        }
+
+        private void cbBuscarTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "")
+            {
+                Carga();
+            }
+            else
+            {
+                Buscar();
+            }
+        }
+
+
+        private void cbBuscarTipo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

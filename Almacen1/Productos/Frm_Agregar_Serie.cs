@@ -18,17 +18,22 @@ namespace Almacen1.Productos
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+
+        // Ventanas
+        Productos.Frm_Agregar_Mac VentanaMAC;
+
         //Variables
         DataGridView Tabla;
-        int Fila, Columna;
+        int Fila, Columna, Cambio;
 
-        public Frm_Agregar_Serie(DataGridView Tabla, int Fila, int Columna)
+        public Frm_Agregar_Serie(DataGridView Tabla, int Fila, int Columna, int Cambio)
         {
             InitializeComponent();
             lblFila.Text = (Fila + 1).ToString() + "/" + Tabla.Rows.Count.ToString();
             this.Tabla = Tabla;
             this.Fila = Fila;
             this.Columna = Columna;
+            this.Cambio = Cambio;
             txtSerie.Text = Tabla[Columna, Fila].Value.ToString(); 
         }
 
@@ -45,6 +50,7 @@ namespace Almacen1.Productos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            bool Error = true;
             bool CondiSerie = true;
             for (int i = 0; i < Fila; i++)
             {
@@ -57,6 +63,7 @@ namespace Almacen1.Productos
             {
                 if (txtSerie.Text == "")
                 {
+                    Error = false;
                     lblErrorSerie.Text = "La serie no puede estar vacia.";
                     lblErrorSerie.Visible = true;
                     tmError.Stop();
@@ -77,22 +84,39 @@ namespace Almacen1.Productos
                     }
                     txtSerie.Text = Tabla[Columna, Fila].Value.ToString();
                 }
-                txtSerie.Focus();
             }
             else
             {
+                Error = false;
                 lblErrorSerie.Text = "La serie no pude ser repetida.";
                 lblErrorSerie.Visible = true;
                 tmError.Stop();
                 tmError.Start();
             }
             
+            if (Cambio == 1)
+            {
+                if (Error)
+                {
+                    if (Fila == 1)
+                    {
+                        VentanaMAC = new Frm_Agregar_Mac(Tabla, 0, 2, 1);
+                    }
+                    VentanaMAC.ShowDialog();
+                }
+            }
+            txtSerie.Focus();
         }
 
         private void btnReintentar_Click(object sender, EventArgs e)
         {
             txtSerie.Text = "";
             txtSerie.Focus();
+        }
+
+        private void txtSerie_TextChanged(object sender, EventArgs e)
+        {
+            txtSerie.Text = txtSerie.Text.ToUpper();
         }
 
         private void tmError_Tick(object sender, EventArgs e)
