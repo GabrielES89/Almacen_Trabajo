@@ -322,3 +322,5 @@ D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos
 D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos.frm_Nuevo_SF.resources
 D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos.Frm_Borrar_Producto_Observar.resources
 D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\obj\Debug\Almacen1.Productos.Frm_Editar_Producto_Observar.resources
+D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\bin\Debug\Salidas\Database1.mdf
+D:\Desktop\Almacen Trabajo\Almacen_Trabajo\Almacen1\bin\Debug\Salidas\Database1_log.ldf
